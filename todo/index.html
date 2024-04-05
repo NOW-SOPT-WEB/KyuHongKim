@@ -13,11 +13,21 @@
         <title>TodoList</title>
     </head>
     <body>
-        <header>
-            <h1>Hong To Do</h1>
-            <div>
-                <input />
-                <button>+</button>
+        <header class="header">
+            <div class="header__inner">
+                <h1 class="header__title header__title--color_indigo">
+                    Hong To Do
+                </h1>
+                <form class="addForm header__addForm">
+                    <input
+                        class="addForm__todoInput addForm__todoInput--input_custom"
+                    />
+                    <button
+                        class="addForm__addButton addForm__addButton--button_custom"
+                    >
+                        +
+                    </button>
+                </form>
             </div>
         </header>
         <main>
