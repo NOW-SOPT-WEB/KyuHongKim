@@ -4,26 +4,23 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./style.css" />
-        <script
-            src="https://kit.fontawesome.com/842f270e6e.js"
-            crossorigin="anonymous"
-        ></script>
+        <link rel="stylesheet" href="./style_week2.css" />
         <title>shoppingList</title>
     </head>
     <body>
         <header>
             <section>
-                <div>
+                <button class="btn">
                     <img src="img/globe-logo.png" alt="지구본 모양 로고" />
-                </div>
+                </button>
                 <h1>규홍이의 쇼핑몰</h1>
-                <div>
+                <button class="hambuger_btn btn">
                     <img src="./img/hambuger-icon.png" alt="햄버거 아이콘" />
-                </div>
+                </button>
             </section>
         </header>
 
-        <nav>
+        <nav id="left_nav">
             <h2>판매목록</h2>
             <ul>
                 <li class="nav_item"><a href="#totalList">전체</a></li>
@@ -36,6 +33,21 @@
                 <li class="nav_item"><a href="#thirdList">주방용품</a></li>
             </ul>
         </nav>
+
+        <section id="menu_bar">
+            <nav id="menu_nav">
+                <div>
+                    <button class="menu_hide_btn btn">
+                        <i class="fa-solid fa-right-long fa-2x"></i>
+                    </button>
+                </div>
+                <ul>
+                    <li><a>관심 상품 목록</a></li>
+                    <li><a>관리자 페이지</a></li>
+                    <li><a>장바구니</a></li>
+                </ul>
+            </nav>
+        </section>
 
         <main>
             <section id="slider">
@@ -280,5 +292,10 @@
             <h1>여기있는거 다 살때까지 열심히 살자</h1>
             <h1>34기 새싹웨비들 화이팅!</h1>
         </footer>
+        <script
+            src="https://kit.fontawesome.com/842f270e6e.js"
+            crossorigin="anonymous"
+        ></script>
+        <script src="./index.js"></script>
     </body>
 </html>

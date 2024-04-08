@@ -1,0 +1,35 @@
+#menu_bar {
+    background-color: #c2d8b9;
+    z-index: 10000;
+    width: 15vw;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    box-shadow: -5px 0px 5px -2px gray;
+    transition: ease-in-out 0.5s;
+}
+
+#menu_nav {
+    margin: 5%;
+}
+
+#menu_nav > ul {
+    list-style: none;
+}
+
+#menu_nav > ul > li {
+    line-height: 20px;
+    height: 20px;
+    padding: 5px;
+    &:hover {
+        background-color: white;
+    }
+}
+
+.menu_remove_btn {
+    border: 0;
+    background-color: inherit;
+    width: 20px;
+    height: 20px;
+}
