@@ -1,0 +1,264 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #f6f6f5;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+/** header css **/
+header {
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    height: 50px;
+    z-index: 1000;
+    background-color: #a1b5d8;
+}
+
+header > section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0 10px;
+}
+
+header img {
+    height: 40px;
+}
+
+/** nav css **/
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 10%;
+    left: 10px;
+    width: 150px;
+    height: 200px;
+    border-radius: 15px;
+    background-color: #c2d8b9;
+}
+
+nav > h2 {
+    padding: 10px;
+}
+
+nav > ul {
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    padding: 5px;
+    padding-left: 0;
+    background-color: white;
+}
+
+.nav_item {
+    width: 90%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.nav_item:hover {
+    background-color: #c2d8b9;
+}
+
+.nav_item:hover > a {
+    color: white;
+}
+
+/** banner css **/
+#slider {
+    display: flex;
+    position: relative;
+    width: 1064px;
+    height: 120px;
+    margin-top: 50px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.banner {
+    display: flex;
+    width: 1260px;
+    margin: 10px 0;
+    flex-wrap: nowrap;
+}
+
+.original {
+    animation: bannermove 10s linear infinite;
+}
+
+.clone {
+    animation: clonemove 10s linear infinite;
+}
+
+.banner > img {
+    width: 128px;
+    height: 120px;
+    margin: 0 5px 0 0;
+}
+
+@keyframes bannermove {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-100%);
+    }
+    50.01% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes clonemove {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+/** main css **/
+main {
+    width: 84.02%;
+    margin-left: 230px;
+}
+
+.shoppinglist {
+    width: 100%;
+    padding-top: 60px;
+    scroll-margin-left: 230px;
+}
+
+.container {
+    display: grid;
+    width: 83.4%;
+    gap: 20px 20px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 280px;
+    border-radius: 10px;
+    background-color: white;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+.item:hover {
+    animation: itemmove 3s infinite ease-in-out;
+}
+
+.item > img {
+    width: 180px;
+    height: 196.5px;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+
+.item > span {
+    margin-top: 5px;
+}
+
+.love:hover {
+    color: red;
+}
+
+@keyframes itemmove {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media screen and (min-width: 1320px) {
+    .container {
+        grid-template-columns: repeat(5, 200px);
+    }
+}
+@media screen and (max-width: 1320px) {
+    .container {
+        grid-template-columns: repeat(4, 200px);
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .container {
+        grid-template-columns: repeat(3, 200px);
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .container {
+        grid-template-columns: repeat(2, 280px);
+    }
+    .item {
+        width: 280px;
+        height: 430px;
+    }
+    .item > img {
+        width: 250px;
+        height: 326.5px;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+}
+
+@media screen and (max-width: 810px) {
+    .container {
+        grid-template-columns: repeat(1, 500px);
+    }
+
+    .item {
+        width: 500px;
+        height: 600px;
+    }
+    .item > img {
+        width: 460px;
+        height: 500px;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    margin-top: 50px;
+    background-color: #c1cad4;
+}
