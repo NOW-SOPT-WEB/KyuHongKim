@@ -70,14 +70,13 @@ nav > ul {
     height: 30px;
     line-height: 30px;
     text-align: center;
-}
 
-.nav_item:hover {
-    background-color: #c2d8b9;
-}
-
-.nav_item:hover > a {
-    color: white;
+    &:hover {
+        background-color: #c2d8b9;
+    }
+    &:hover > a {
+        color: white;
+    }
 }
 
 /** banner css **/
