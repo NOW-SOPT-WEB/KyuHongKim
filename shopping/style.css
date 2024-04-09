@@ -83,7 +83,6 @@ nav > ul {
 /** banner css **/
 #slider {
     display: flex;
-    position: relative;
     width: 1064px;
     height: 120px;
     margin-top: 50px;
