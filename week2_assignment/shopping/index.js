@@ -36,5 +36,11 @@ btn_list.forEach((elem) => {
 });
 /** */
 
-//##
-//commit test
+const click = document.querySelector(".click");
+function addItem() {
+    if (confirm("장바구니에 추가하겠습니까?") === true) {
+        console.log(this);
+    }
+}
+
+click.addEventListener("click", addItem);
