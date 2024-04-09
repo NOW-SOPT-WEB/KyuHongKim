@@ -150,10 +150,20 @@ main {
     margin-left: 230px;
 }
 
-.shoppinglist {
+.shoppingList {
     width: 100%;
     padding-top: 60px;
     scroll-margin-left: 230px;
+}
+
+#totalList {
+    display: block;
+}
+
+#officeList,
+#clothList,
+#kitchenList {
+    display: none;
 }
 
 .container {
