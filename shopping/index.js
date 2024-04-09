@@ -19,7 +19,7 @@ hambuger_btn.addEventListener("click", menu_show_handler);
 const shoppingList = document.querySelectorAll(".shoppingList");
 const btn_list = document.querySelectorAll(".nav_btn");
 
-// name에 해당하는 쇼핑리스트의 display값을 block으로,
+// name값에 해당하는 쇼핑리스트의 display값을 block으로,
 // 나머지 쇼핑리스트들은 none값을 줘서 해당하는 쇼핑리스트만 보여주는 함수
 function showList(name) {
     shoppingList.forEach((elem) => {
@@ -35,3 +35,5 @@ btn_list.forEach((elem) => {
     });
 });
 /** */
+
+//##
