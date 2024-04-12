@@ -44,7 +44,7 @@ main {
 }
 
 /** 장바구니 카트리스트 css **/
-#cart_container {
-    display: grid;
-    width: 70%;
+#cart_table {
+    margin-top: 10rem;
+    margin-left: 40%;
 }

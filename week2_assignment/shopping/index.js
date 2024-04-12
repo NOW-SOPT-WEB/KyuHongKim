@@ -37,10 +37,33 @@ btn_list.forEach((elem) => {
 /** */
 
 const click = document.querySelector(".click");
+
 function addItem() {
     if (confirm("장바구니에 추가하겠습니까?") === true) {
-        console.log(this);
+        console.log(this.children[0]);
+        let temp = {
+            src: this.children[0].src,
+            title: this.children[2].innerText,
+            price: this.children[3].innerText,
+            category: this.className.split(" ")[1],
+        };
+        localStorage.setItem(
+            `${this.children[2].innerText}`,
+            JSON.stringify(temp)
+        );
+        console.log(
+            JSON.parse(localStorage.getItem(`${this.children[2].innerText}`))
+        );
     }
 }
 
 click.addEventListener("click", addItem);
+
+// function createCartItem() {
+//     let temp = JSON.parse(
+//         localStorage.getItem(`${this.children[2].innerText}`)
+//     );
+//     return (
+
+//     );
+// }

@@ -19,13 +19,29 @@
             </section>
         </header>
         <main>
-            <section id="cart_container">
-                <div><input type="checkbox" /></div>
-                <div>상품 정보</div>
-                <div>상품 금액</div>
-                <div>카테고리</div>
-                <div>비고</div>
-            </section>
+            <template id="cart_row">
+                <tr>
+                    <td><input type="checkbox" /></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button>삭제</button></td>
+                </tr>
+            </template>
+            <table id="cart_table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" /></th>
+                        <th>상품 정보</th>
+                        <th>상품 금액</th>
+                        <th>카테고리</th>
+                        <th>비고</th>
+                    </tr>
+                </thead>
+                <tbody id="cart_body"></tbody>
+            </table>
         </main>
+        <script src="./cart.js"></script>
     </body>
 </html>
