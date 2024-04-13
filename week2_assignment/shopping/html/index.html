@@ -3,92 +3,103 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./style.css" />
-        <link rel="stylesheet" href="./style_week2.css" />
+        <link rel="stylesheet" href="../css/reset.css" />
+        <link rel="stylesheet" href="../css/style.css" />
+        <link rel="stylesheet" href="../css/style_week2.css" />
         <title>shoppingList</title>
     </head>
     <body>
         <header>
-            <section>
-                <a class="btn" href="./index.html">
-                    <img src="img/globe-logo.png" alt="지구본 모양 로고" />
-                </a>
-                <h1>규홍이의 쇼핑몰</h1>
-                <button class="hambuger_btn btn">
-                    <img src="./img/hambuger-icon.png" alt="햄버거 아이콘" />
-                </button>
-            </section>
+            <a class="btn" href="./index.html">
+                <img src="../img/globe-logo.png" alt="지구본 모양 로고" />
+            </a>
+            <h1>규홍이의 쇼핑몰</h1>
+            <button type="button" class="hambuger_btn btn">
+                <img src="../img/hambuger-icon.png" alt="햄버거 아이콘" />
+            </button>
         </header>
 
-        <nav id="left_nav">
+        <nav class="left_nav">
             <h2>판매목록</h2>
             <ul>
                 <li class="nav_item">
-                    <button class="total_btn nav_btn">전체</button>
+                    <button type="button" class="total_btn nav_btn">
+                        전체
+                    </button>
                 </li>
                 <li class="nav_item">
-                    <button class="office_btn nav_btn">사무용품</button>
+                    <button type="button" class="office_btn nav_btn">
+                        사무용품
+                    </button>
                 </li>
                 <li class="nav_item">
-                    <button class="cloth_btn nav_btn">옷</button>
+                    <button type="button" class="cloth_btn nav_btn">옷</button>
                 </li>
                 <li class="nav_item">
-                    <button class="kitchen_btn nav_btn">주방용품</button>
+                    <button type="button" class="kitchen_btn nav_btn">
+                        주방용품
+                    </button>
                 </li>
             </ul>
         </nav>
 
-        <section id="menu_bar">
-            <nav id="menu_nav">
+        <section class="menu_bar">
+            <nav class="menu_nav">
                 <div>
-                    <button class="menu_hide_btn btn">
+                    <button type="button" class="menu_hide_btn btn">
                         <i class="fa-solid fa-right-long fa-2x"></i>
                     </button>
                 </div>
                 <ul>
-                    <li><a>관심 상품 목록</a></li>
-                    <li><a>관리자 페이지</a></li>
-                    <li><a href="./cart.html">장바구니</a></li>
+                    <li>
+                        <a>관심 상품 목록</a>
+                    </li>
+                    <li>
+                        <a>관리자 페이지</a>
+                    </li>
+                    <li>
+                        <a href="./cart.html">장바구니</a>
+                    </li>
                 </ul>
             </nav>
         </section>
 
         <main>
-            <section id="slider">
+            <section class="slider">
                 <div class="banner original">
-                    <img src="./img/모션데스크.jpeg" alt="모션데스크" />
-                    <img src="./img/가디건.jpeg" alt="가디건" />
+                    <img src="../img/모션데스크.jpeg" alt="모션데스크" />
+                    <img src="../img/가디건.jpeg" alt="가디건" />
                     <img
-                        src="./img/버티컬마우스.jpeg"
+                        src="../img/버티컬마우스.jpeg"
                         alt="버티컬마우스"
                     />
-                    <img src="./img/신발.jpeg" alt="신발" />
-                    <img src="./img/아이맥.jpeg" alt="아이맥" />
-                    <img src="./img/폴로니트.jpeg" alt="폴로니트" />
-                    <img src="./img/생지셋업.jpeg" alt="생지셋업" />
-                    <img src="./img/무쇠팬.jpeg" alt="무쇠팬" />
+                    <img src="../img/신발.jpeg" alt="신발" />
+                    <img src="../img/아이맥.jpeg" alt="아이맥" />
+                    <img src="../img/폴로니트.jpeg" alt="폴로니트" />
+                    <img src="../img/생지셋업.jpeg" alt="생지셋업" />
+                    <img src="../img/무쇠팬.jpeg" alt="무쇠팬" />
                 </div>
                 <div class="banner clone">
-                    <img src="./img/모션데스크.jpeg" alt="모션데스크" />
-                    <img src="./img/가디건.jpeg" alt="가디건" />
+                    <img src="../img/모션데스크.jpeg" alt="모션데스크" />
+                    <img src="../img/가디건.jpeg" alt="가디건" />
                     <img
-                        src="./img/버티컬마우스.jpeg"
+                        src="../img/버티컬마우스.jpeg"
                         alt="버티컬마우스"
                     />
-                    <img src="./img/신발.jpeg" alt="신발" />
-                    <img src="./img/아이맥.jpeg" alt="아이맥" />
-                    <img src="./img/폴로니트.jpeg" alt="폴로니트" />
-                    <img src="./img/생지셋업.jpeg" alt="생지셋업" />
-                    <img src="./img/무쇠팬.jpeg" alt="무쇠팬" />
+                    <img src="../img/신발.jpeg" alt="신발" />
+                    <img src="../img/아이맥.jpeg" alt="아이맥" />
+                    <img src="../img/폴로니트.jpeg" alt="폴로니트" />
+                    <img src="../img/생지셋업.jpeg" alt="생지셋업" />
+                    <img src="../img/무쇠팬.jpeg" alt="무쇠팬" />
                 </div>
             </section>
 
-            <section class="shoppingList" id="totalList">
+            <section class="shoppingList totalList">
                 <h2>전체</h2>
                 <section class="container">
                     <div class="item office click">
                         <img
-                            src="./img/모션데스크.jpeg"
+                            src="../img/모션데스크.jpeg"
                             alt="모션데스크"
                         />
                         <span><i class="fa-regular fa-heart love"></i></span>
@@ -96,32 +107,32 @@
                         <span>520,000</span>
                     </div>
                     <div class="item office">
-                        <img src="./img/모션베드.jpeg" alt="모션베드" />
+                        <img src="../img/모션베드.jpeg" alt="모션베드" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>모션베드</span>
                         <span>1,100,000</span>
                     </div>
                     <div class="item office">
-                        <img src="./img/아이맥.jpeg" alt="아이맥" />
+                        <img src="../img/아이맥.jpeg" alt="아이맥" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>아이맥</span>
                         <span>1,190,000</span>
                     </div>
                     <div class="item office">
-                        <img src="./img/닌텐도.jpeg" alt="닌텐도" />
+                        <img src="../img/닌텐도.jpeg" alt="닌텐도" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>닌텐도</span>
                         <span>450,000</span>
                     </div>
                     <div class="item office">
-                        <img src="./img/플스.jpeg" alt="플스" />
+                        <img src="../img/플스.jpeg" alt="플스" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>플스</span>
                         <span>690,000</span>
                     </div>
                     <div class="item office">
                         <img
-                            src="./img/버티컬마우스.jpeg"
+                            src="../img/버티컬마우스.jpeg"
                             alt="버티컬마우스"
                         />
                         <span><i class="fa-regular fa-heart love"></i></span>
@@ -130,7 +141,7 @@
                     </div>
                     <div class="item office">
                         <img
-                            src="./img/버티컬키보드.jpeg"
+                            src="../img/버티컬키보드.jpeg"
                             alt="버티컬키보드"
                         />
                         <span><i class="fa-regular fa-heart love"></i></span>
@@ -138,56 +149,56 @@
                         <span>80,000</span>
                     </div>
                     <div class="item cloth">
-                        <img src="./img/가디건.jpeg" alt="가디건" />
+                        <img src="../img/가디건.jpeg" alt="가디건" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>가디건</span>
                         <span>130,000</span>
                     </div>
                     <div class="item cloth">
-                        <img src="./img/신발.jpeg" alt="신발" />
+                        <img src="../img/신발.jpeg" alt="신발" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>신발</span>
                         <span>139,000</span>
                     </div>
                     <div class="item cloth">
-                        <img src="./img/폴로니트.jpeg" alt="폴로니트" />
+                        <img src="../img/폴로니트.jpeg" alt="폴로니트" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>니트</span>
                         <span>220,000</span>
                     </div>
                     <div class="item cloth">
-                        <img src="./img/생지셋업.jpeg" alt="생지셋업" />
+                        <img src="../img/생지셋업.jpeg" alt="생지셋업" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>생지 셋업</span>
                         <span>139,000</span>
                     </div>
 
                     <div class="item kitchen">
-                        <img src="./img/무쇠팬.jpeg" alt="무쇠팬" />
+                        <img src="../img/무쇠팬.jpeg" alt="무쇠팬" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>무쇠팬</span>
                         <span>88,000</span>
                     </div>
                     <div class="item kitchen">
-                        <img src="./img/수비드머신.jpg" alt="수비드머신" />
+                        <img src="../img/수비드머신.jpg" alt="수비드머신" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>수비드 머신</span>
                         <span>350,000</span>
                     </div>
                     <div class="item kitchen">
-                        <img src="./img/원목도마.jpg" alt="원목도마" />
+                        <img src="../img/원목도마.jpg" alt="원목도마" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>고급 원목 도마</span>
                         <span>200,000</span>
                     </div>
                 </section>
             </section>
-            <section class="shoppingList" id="officeList">
+            <section class="shoppingList officeList">
                 <h2>사무용품</h2>
                 <section class="container">
                     <div class="item office">
                         <img
-                            src="./img/모션데스크.jpeg"
+                            src="../img/모션데스크.jpeg"
                             alt="모션데스크"
                         />
                         <span><i class="fa-regular fa-heart love"></i></span>
@@ -195,32 +206,32 @@
                         <span>520,000</span>
                     </div>
                     <div class="item office">
-                        <img src="./img/모션베드.jpeg" alt="모션베드" />
+                        <img src="../img/모션베드.jpeg" alt="모션베드" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>모션베드</span>
                         <span>1,100,000</span>
                     </div>
                     <div class="item office">
-                        <img src="./img/아이맥.jpeg" alt="아이맥" />
+                        <img src="../img/아이맥.jpeg" alt="아이맥" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>아이맥</span>
                         <span>1,190,000</span>
                     </div>
                     <div class="item office">
-                        <img src="./img/닌텐도.jpeg" alt="닌텐도" />
+                        <img src="../img/닌텐도.jpeg" alt="닌텐도" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>닌텐도</span>
                         <span>450,000</span>
                     </div>
                     <div class="item office">
-                        <img src="./img/플스.jpeg" alt="플스" />
+                        <img src="../img/플스.jpeg" alt="플스" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>플스</span>
                         <span>690,000</span>
                     </div>
                     <div class="item office">
                         <img
-                            src="./img/버티컬마우스.jpeg"
+                            src="../img/버티컬마우스.jpeg"
                             alt="버티컬마우스"
                         />
                         <span><i class="fa-regular fa-heart love"></i></span>
@@ -229,7 +240,7 @@
                     </div>
                     <div class="item office">
                         <img
-                            src="./img/버티컬키보드.jpeg"
+                            src="../img/버티컬키보드.jpeg"
                             alt="버티컬키보드"
                         />
                         <span><i class="fa-regular fa-heart love"></i></span>
@@ -238,52 +249,53 @@
                     </div>
                 </section>
             </section>
-            <section class="shoppingList" id="clothList">
+            <section class="shoppingList clothList">
                 <h2>옷</h2>
                 <section class="container">
                     <div class="item cloth">
-                        <img src="./img/가디건.jpeg" alt="가디건" />
+                        <img src="../img/가디건.jpeg" alt="가디건" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>가디건</span>
                         <span>130,000</span>
                     </div>
+                    .
                     <div class="item cloth">
-                        <img src="./img/신발.jpeg" alt="신발" />
+                        <img src="../img/신발.jpeg" alt="신발" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>신발</span>
                         <span>139,000</span>
                     </div>
                     <div class="item cloth">
-                        <img src="./img/폴로니트.jpeg" alt="폴로니트" />
+                        <img src="../img/폴로니트.jpeg" alt="폴로니트" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>니트</span>
                         <span>220,000</span>
                     </div>
                     <div class="item cloth">
-                        <img src="./img/생지셋업.jpeg" alt="생지셋업" />
+                        <img src="../img/생지셋업.jpeg" alt="생지셋업" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>생지 셋업</span>
                         <span>139,000</span>
                     </div>
                 </section>
             </section>
-            <section class="shoppingList" id="kitchenList">
+            <section class="shoppingList kitchenList">
                 <h2>주방용품</h2>
                 <section class="container">
                     <div class="item kitchen">
-                        <img src="./img/무쇠팬.jpeg" alt="무쇠팬" />
+                        <img src="../img/무쇠팬.jpeg" alt="무쇠팬" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>무쇠팬</span>
                         <span>88,000</span>
                     </div>
                     <div class="item kitchen">
-                        <img src="./img/수비드머신.jpg" alt="수비드머신" />
+                        <img src="../img/수비드머신.jpg" alt="수비드머신" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>수비드 머신</span>
                         <span>350,000</span>
                     </div>
                     <div class="item kitchen">
-                        <img src="./img/원목도마.jpg" alt="원목도마" />
+                        <img src="../img/원목도마.jpg" alt="원목도마" />
                         <span><i class="fa-regular fa-heart love"></i></span>
                         <span>고급 원목 도마</span>
                         <span>200,000</span>
@@ -300,6 +312,6 @@
             src="https://kit.fontawesome.com/842f270e6e.js"
             crossorigin="anonymous"
         ></script>
-        <script src="./index.js"></script>
+        <script src="../js/index.js"></script>
     </body>
 </html>

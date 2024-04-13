@@ -1,5 +1,5 @@
 /** menu_bar css **/
-#menu_bar {
+.menu_bar {
     background-color: #c2d8b9;
     z-index: 10000;
     width: 15vw;
@@ -11,15 +11,15 @@
     transition: ease-in-out 0.5s;
 }
 
-#menu_nav {
+.menu_nav {
     margin: 5%;
 }
 
-#menu_nav > ul {
+.menu_nav > ul {
     list-style: none;
 }
 
-#menu_nav > ul > li {
+.menu_nav > ul > li {
     line-height: 20px;
     height: 20px;
     padding: 5px;

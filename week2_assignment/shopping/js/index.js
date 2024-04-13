@@ -1,5 +1,5 @@
 /** menu_bar show & hidden 구현 */
-const menu_bar = document.querySelector("#menu_bar");
+const menu_bar = document.querySelector(".menu_bar");
 const menu_hide_btn = document.querySelector(".menu_hide_btn");
 const hambuger_btn = document.querySelector(".hambuger_btn");
 
