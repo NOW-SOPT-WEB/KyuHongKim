@@ -4,7 +4,7 @@
     z-index: 10000;
     width: 15vw;
     position: fixed;
-    right: 0;
+    right: -15vw;
     top: 0;
     height: 100%;
     box-shadow: -5px 0px 5px -2px gray;
@@ -17,12 +17,13 @@
 
 .menu_nav > ul {
     list-style: none;
+    height: auto;
 }
 
 .menu_nav > ul > li {
-    line-height: 20px;
-    height: 20px;
-    padding: 5px;
+    height: 2rem;
+    line-height: 2rem;
+    padding-left: 0.5rem;
     &:hover {
         background-color: white;
     }
@@ -31,8 +32,8 @@
 .menu_remove_btn {
     border: 0;
     background-color: inherit;
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
 /** left_nav css **/

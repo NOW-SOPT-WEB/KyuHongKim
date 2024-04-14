@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/reset.css" />
         <link rel="stylesheet" href="../css/cart.css" />
         <title>CartList</title>
     </head>
@@ -20,20 +21,25 @@
         </header>
         <main>
             <template id="cart_row">
-                <tr>
+                <tr class="cartItem">
                     <td><input type="checkbox" /></td>
+                    <td><img /></td>
+                    <td class="item_title"></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button>삭제</button></td>
+                    <td>
+                        <button type="button" class="delete_btn btn">
+                            삭제
+                        </button>
+                    </td>
                 </tr>
             </template>
+
             <table id="cart_table">
                 <thead>
                     <tr>
                         <th><input type="checkbox" /></th>
-                        <th>상품 정보</th>
+                        <th colspan="2">상품 정보</th>
                         <th>상품 금액</th>
                         <th>카테고리</th>
                         <th>비고</th>
@@ -41,7 +47,12 @@
                 </thead>
                 <tbody id="cart_body"></tbody>
             </table>
+
+            <section class="btn_section">
+                <button class="buy_btn btn">구매하기</button>
+                <button class="home_btn btn">홈으로</button>
+            </section>
         </main>
-        <script src="../js/cart.js"></script>
+        <script src="../js/cart.js" type="module"></script>
     </body>
 </html>

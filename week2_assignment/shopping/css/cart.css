@@ -1,23 +1,17 @@
-* {
-    padding: 0;
-    margin: 0;
-}
-
 body {
     background-color: #f6f6f5;
-}
-
-a {
-    color: black;
-    text-decoration: none;
 }
 
 .btn {
     background-color: inherit;
     border: 0;
     cursor: pointer;
+    border-radius: 0.3rem;
+    width: 4rem;
+    height: 2rem;
 }
 
+/** header css **/
 header {
     position: fixed;
     top: 0%;
@@ -45,6 +39,88 @@ main {
 
 /** 장바구니 카트리스트 css **/
 #cart_table {
-    margin-top: 10rem;
-    margin-left: 40%;
+    table-layout: fixed;
+    width: 70.4rem;
+    margin: 5rem auto;
+    border: 0.2rem solid;
+}
+
+#cart_table th,
+td {
+    border: 0.08rem solid;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#cart_body td:nth-child(1) {
+    width: 5%;
+}
+
+thead {
+    width: 70rem;
+    display: block;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    background-color: #8cb8b4;
+}
+
+tbody {
+    display: block;
+    max-height: 15rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+thead tr,
+tbody tr {
+    display: table;
+    width: 70rem;
+}
+
+thead th:nth-child(1),
+tbody td:nth-child(1) {
+    width: 5%;
+}
+
+thead th:nth-child(2) {
+    width: 30%;
+}
+
+thead th:nth-child(n + 3) {
+    width: 15%;
+}
+
+tbody td:nth-child(n + 2) {
+    width: 15%;
+}
+
+.cartItem {
+    height: 3.5rem;
+}
+
+.cartItem img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.delete_btn {
+    background-color: #ffba08;
+}
+
+/** 구매, 홈 버튼 css **/
+.btn_section {
+    width: 9rem;
+    display: flex;
+    margin: 0 auto;
+}
+
+.buy_btn {
+    background-color: #003566;
+    color: whitesmoke;
+    margin-right: 1rem;
+}
+
+.home_btn {
+    background-color: #c77dff;
+    color: whitesmoke;
 }
