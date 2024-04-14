@@ -22,7 +22,7 @@
         <main>
             <template id="cart_row">
                 <tr class="cartItem">
-                    <td><input type="checkbox" /></td>
+                    <td><input type="checkbox" class="check" /></td>
                     <td><img /></td>
                     <td class="item_title"></td>
                     <td></td>
@@ -38,7 +38,7 @@
             <table id="cart_table">
                 <thead>
                     <tr>
-                        <th><input type="checkbox" /></th>
+                        <th><input type="checkbox" class="total_check" /></th>
                         <th colspan="2">상품 정보</th>
                         <th>상품 금액</th>
                         <th>카테고리</th>
@@ -51,6 +51,15 @@
             <section class="btn_section">
                 <button class="buy_btn btn">구매하기</button>
                 <button class="home_btn btn">홈으로</button>
+            </section>
+            <section class="modal">
+                <div class="modal_container">
+                    <button class="modal_close_btn">x</button>
+
+                    <section class="purchase_container"></section>
+                    <span class="total_price"></span>
+                    <button class="btn purchase_btn">구매하기</button>
+                </div>
             </section>
         </main>
         <script src="../js/cart.js" type="module"></script>

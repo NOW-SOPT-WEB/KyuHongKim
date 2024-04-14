@@ -31,3 +31,15 @@ export function createShoppingList(filterdList) {
         `;
     });
 }
+
+export function createPurchaseList(purchaseList) {
+    return purchaseList.map((elem) => {
+        return `
+            <div class="purchase_item">
+                <img src=${elem.src} alt=${elem.title} />
+                <p>${elem.title}</p>
+                <p>${elem.price.toLocaleString()}</p>
+            </div>
+        `;
+    });
+}
