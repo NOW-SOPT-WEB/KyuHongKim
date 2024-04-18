@@ -17,7 +17,7 @@ function createCartList() {
         titleList.includes(elem.title)
     );
     const cartRow = document.querySelector("#cart_row");
-    const tb = document.querySelector("#cart_body");
+    const tb = document.querySelector(".cart_body");
     tb.innerHTML = "";
 
     // 장바구니 테이블 만들기
@@ -56,21 +56,7 @@ const modal_close_btn = document.querySelector(".modal_close_btn");
 
 const purchaseList = [];
 
-// function clickHandler() {
-//     if (this.checked) {
-//         purchaseList.append(this.closest("tr").rowIndex - 1);
-//     } else {
-//         if (purchaseList.includes(this.closest("tr").rowIndex - 1)) {
-//             purchaseList.splice();
-//         }
-//     }
-// }
-
-// checkInputList.forEach((elem) => {
-//     elem.addEventListener("click", clickHandler);
-// });
-
-const modal = document.querySelector(".modal");
+const modal = document.querySelector(".modal_background");
 
 function showModal() {
     let totalPrice = 0;

@@ -3,72 +3,79 @@ body {
 }
 
 .btn {
-    background-color: inherit;
     border: 0;
+    background-color: inherit;
     cursor: pointer;
-    border-radius: 0.3rem;
-    width: 4rem;
-    height: 2rem;
-}
-
-/** header css **/
-header {
-    position: fixed;
-    top: 0%;
-    width: 100%;
-    height: 3.125rem;
-    z-index: 1000;
-    background-color: #a1b5d8;
-}
-
-header > section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 3.125rem;
-    padding: 0 1.6rem;
-}
-
-header img {
-    height: 2.5rem;
 }
 
 main {
     margin-top: 3.75rem;
 }
 
-/** 장바구니 카트리스트 css **/
+.cart_btn {
+    border: 0;
+    width: 4rem;
+    height: 2rem;
+    background-color: inherit;
+    cursor: pointer;
+    border-radius: 0.3rem;
+}
+
+/** header css **/
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    position: fixed;
+    top: 0%;
+    z-index: 1000;
+    width: 100%;
+    height: 3.125rem;
+    height: 3.125rem;
+    background-color: #a1b5d8;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+header img {
+    height: 2.5rem;
+}
+
+/** 장바구니 테이블 css **/
 #cart_table {
-    table-layout: fixed;
-    width: 70.4rem;
     margin: 5rem auto;
     border: 0.2rem solid;
+    width: 70.4rem;
+    table-layout: fixed;
+}
+
+#cart_table > thead {
+    display: block;
+    width: 70rem;
+    height: 3.5rem;
+    background-color: #8cb8b4;
+    line-height: 3.5rem;
+}
+
+#cart_table > tbody {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 15rem;
 }
 
 #cart_table th,
 td {
     border: 0.08rem solid;
-    text-align: center;
     vertical-align: middle;
+    text-align: center;
 }
 
-#cart_body td:nth-child(1) {
+.cart_body td:nth-child(1) {
     width: 5%;
-}
-
-thead {
-    width: 70rem;
-    display: block;
-    height: 3.5rem;
-    line-height: 3.5rem;
-    background-color: #8cb8b4;
-}
-
-tbody {
-    display: block;
-    max-height: 15rem;
-    overflow-y: auto;
-    overflow-x: hidden;
 }
 
 thead tr,
@@ -94,6 +101,7 @@ tbody td:nth-child(n + 2) {
     width: 15%;
 }
 
+/** cart item template태그 css **/
 .cartItem {
     height: 3.5rem;
 }
@@ -109,15 +117,15 @@ tbody td:nth-child(n + 2) {
 
 /** 구매, 홈 버튼 css **/
 .btn_section {
-    width: 9rem;
     display: flex;
     margin: 0 auto;
+    width: 9rem;
 }
 
 .buy_btn {
+    margin-right: 1rem;
     background-color: #003566;
     color: whitesmoke;
-    margin-right: 1rem;
 }
 
 .home_btn {
@@ -126,17 +134,26 @@ tbody td:nth-child(n + 2) {
 }
 
 /** modal css **/
-.modal {
+.modal_background {
     display: none;
     position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+    padding: 2rem;
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
     width: 43rem;
-    padding: 2rem;
     height: 70%;
     background-color: #f6fff8;
+    transform: translate(-50%, -50%);
 }
 
 .modal_container {
@@ -145,22 +162,22 @@ tbody td:nth-child(n + 2) {
 }
 
 .purchase_btn {
+    margin: 0 auto;
     background-color: #003566;
     color: whitesmoke;
-    margin: 0 auto;
 }
 
 .purchase_container {
     display: grid;
-    grid-template-columns: repeat(5, 7rem);
     gap: 1rem;
     margin-top: 2%;
+    grid-template-columns: repeat(5, 7rem);
 }
 
 .purchase_item {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
     height: 12rem;
     color: #c77dff;
@@ -179,8 +196,8 @@ tbody td:nth-child(n + 2) {
 }
 .modal_close_btn {
     position: absolute;
-    right: 2%;
     top: 2%;
+    right: 2%;
     width: 1.5rem;
     height: 1.5rem;
     background-color: #ffba08;

@@ -4,37 +4,20 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="../css/reset.css" />
-        <link rel="stylesheet" href="../css/cart.css" />
+        <link rel="stylesheet" href="../css/week2_css/cart.css" />
         <title>CartList</title>
     </head>
     <body>
         <header>
-            <section>
-                <a class="btn" href="./index.html">
-                    <img src="../img/globe-logo.png" alt="지구본 모양 로고" />
-                </a>
-                <h1>장바구니 페이지</h1>
-                <button class="hambuger_btn btn">
-                    <img src="../img/hambuger-icon.png" alt="햄버거 아이콘" />
-                </button>
-            </section>
+            <a class="btn" href="./index.html">
+                <img src="../img/globe-logo.png" alt="지구본 모양 로고" />
+            </a>
+            <h1>규홍이의 쇼핑몰</h1>
+            <button type="button" class="hambuger_btn btn">
+                <img src="../img/hambuger-icon.png" alt="햄버거 아이콘" />
+            </button>
         </header>
         <main>
-            <template id="cart_row">
-                <tr class="cartItem">
-                    <td><input type="checkbox" class="check" /></td>
-                    <td><img /></td>
-                    <td class="item_title"></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button type="button" class="delete_btn btn">
-                            삭제
-                        </button>
-                    </td>
-                </tr>
-            </template>
-
             <table id="cart_table">
                 <thead>
                     <tr>
@@ -45,20 +28,37 @@
                         <th>비고</th>
                     </tr>
                 </thead>
-                <tbody id="cart_body"></tbody>
+                <tbody class="cart_body"></tbody>
             </table>
 
-            <section class="btn_section">
-                <button class="buy_btn btn">구매하기</button>
-                <button class="home_btn btn">홈으로</button>
-            </section>
-            <section class="modal">
-                <div class="modal_container">
-                    <button class="modal_close_btn">x</button>
+            <template id="cart_row">
+                <tr class="cartItem">
+                    <td><input type="checkbox" class="check" /></td>
+                    <td><img /></td>
+                    <td class="item_title"></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button type="button" class="delete_btn cart_btn">
+                            삭제
+                        </button>
+                    </td>
+                </tr>
+            </template>
 
-                    <section class="purchase_container"></section>
-                    <span class="total_price"></span>
-                    <button class="btn purchase_btn">구매하기</button>
+            <section class="btn_section">
+                <button class="buy_btn cart_btn">구매하기</button>
+                <button class="home_btn cart_btn">홈으로</button>
+            </section>
+
+            <section class="modal_background">
+                <div class="modal">
+                    <div class="modal_container">
+                        <button class="modal_close_btn">x</button>
+                        <section class="purchase_container"></section>
+                        <span class="total_price"></span>
+                        <button class="purchase_btn cart_btn">구매하기</button>
+                    </div>
                 </div>
             </section>
         </main>

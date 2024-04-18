@@ -3,24 +3,24 @@ body {
 }
 
 .btn {
-    background-color: inherit;
     border: 0;
+    background-color: inherit;
     cursor: pointer;
 }
 
 /** header css **/
 header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
     position: fixed;
     top: 0%;
+    z-index: 1000;
     width: 100%;
     height: 3.125rem;
-    z-index: 1000;
-    background-color: #a1b5d8;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     height: 3.125rem;
-    padding: 0 1rem;
+    background-color: #a1b5d8;
 }
 
 header h1 {
@@ -31,19 +31,19 @@ header img {
     height: 2.5rem;
 }
 
-/** nav css **/
+/** left nav css **/
 
 .left_nav {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     position: fixed;
     top: 10%;
     left: 1.6rem;
     width: 9.375rem;
     height: 12.5rem;
-    border-radius: 1rem;
     background-color: #c2d8b9;
+    border-radius: 1rem;
 }
 
 .left_nav > h2 {
@@ -52,17 +52,17 @@ header img {
 
 .left_nav > ul {
     display: flex;
-    list-style: none;
-    flex-direction: column;
     align-items: center;
-    width: 7.5rem;
-    height: 8.5rem;
+    flex-direction: column;
     padding: 0.25rem 0;
     padding-left: 0;
+    width: 7.5rem;
+    height: 8.5rem;
     background-color: white;
+    list-style: none;
 }
 
-.left_nav .nav_item {
+.left_nav > ul > .nav_item {
     width: 90%;
     height: 2rem;
     line-height: 2rem;
@@ -76,22 +76,28 @@ header img {
     }
 }
 
+.nav_btn {
+    border: 0;
+    background-color: inherit;
+    cursor: pointer;
+}
+
 /** banner css **/
 .slider {
     display: flex;
+    margin-top: 3.125rem;
+    overflow: hidden;
     position: relative;
     width: 66.5rem;
     height: 7.5rem;
-    margin-top: 3.125rem;
-    overflow: hidden;
     box-sizing: border-box;
 }
 
 .banner {
     display: flex;
-    width: 78.75rem;
-    margin: 1.6rem 0;
     flex-wrap: nowrap;
+    margin: 1.6rem 0;
+    width: 78.75rem;
 }
 
 .original {
@@ -103,9 +109,9 @@ header img {
 }
 
 .banner > img {
+    margin: 0 0.3125rem 0 0;
     width: 8rem;
     height: 7.5rem;
-    margin: 0 0.3125rem 0 0;
 }
 
 @keyframes bannermove {
@@ -137,41 +143,31 @@ header img {
 
 /** main css **/
 main {
-    width: 84.02%;
     margin-left: 14.375rem;
+    width: 84.02%;
 }
 
 .shoppingList {
-    width: 100%;
     padding-top: 3.75rem;
+    width: 100%;
     scroll-margin-left: 14.375rem;
-}
-
-.totalList {
-    display: block;
-}
-
-.officeList,
-.clothList,
-.kitchenList {
-    display: none;
 }
 
 .container {
     display: grid;
-    width: 83.4%;
     gap: 1rem 1rem;
+    width: 83.4%;
 }
 
 .item {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
     width: 12.5rem;
     height: 17.5rem;
-    border-radius: 1.6rem;
     background-color: white;
+    border-radius: 1.6rem;
     transform-origin: center;
     transform-box: fill-box;
 }
@@ -181,9 +177,9 @@ main {
 }
 
 .item > img {
+    margin-top: 5%;
     width: 90%;
     height: 70.2%;
-    margin-top: 5%;
     border-radius: 1.6rem;
 }
 
@@ -235,9 +231,9 @@ main {
         height: 26.875rem;
     }
     .item > img {
+        margin-top: 1.6rem;
         width: 15.625rem;
         height: 20.4rem;
-        margin-top: 1.6rem;
         border-radius: 1.6rem;
     }
 }
@@ -252,19 +248,25 @@ main {
         height: 37.5rem;
     }
     .item > img {
+        margin-top: 1.6rem;
         width: 28.75rem;
         height: 31.25rem;
-        margin-top: 1.6rem;
         border-radius: 1.6rem;
     }
 }
 
+/** footer css **/
 footer {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 12.5rem;
+    justify-content: center;
+    flex-direction: column;
     margin-top: 3.125rem;
+    height: 12.5rem;
     background-color: #c1cad4;
+}
+
+footer > p {
+    margin: 0.5rem;
+    font-size: 1.5rem;
 }
