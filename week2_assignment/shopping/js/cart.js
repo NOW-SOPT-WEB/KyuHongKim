@@ -1,7 +1,7 @@
 import SHOPPING_LIST from "./itemData.js";
 
 // 장바구니 구현 함수
-function createCartList() {
+export function createCartList() {
     let titleList = JSON.parse(localStorage.getItem(`cartList`));
 
     const cartList = SHOPPING_LIST.filter((elem) =>

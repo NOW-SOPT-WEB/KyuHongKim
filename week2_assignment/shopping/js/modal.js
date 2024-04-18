@@ -1,5 +1,6 @@
 import { createPurchaseList } from "./createElementList.js";
 import SHOPPING_LIST from "./itemData.js";
+import { createCartList } from "./cart.js";
 
 const buyBtn = document.querySelector(".buy_btn");
 const purchaseBtn = document.querySelector(".purchase_btn");
@@ -37,6 +38,7 @@ function showModal() {
 function hideModal() {
     modal.style.display = "none";
 }
+
 modal_close_btn.addEventListener("click", hideModal);
 
 function purchaseHandler() {
@@ -47,6 +49,8 @@ function purchaseHandler() {
     titleList = titleList.filter((elem, index) => !checkBoxes[index].checked);
     localStorage.setItem("cartList", JSON.stringify(titleList));
     createCartList();
+    const total_checkBox = document.querySelector(".total_check");
+    total_checkBox.checked = false;
 }
 
 buyBtn.addEventListener("click", showModal);
