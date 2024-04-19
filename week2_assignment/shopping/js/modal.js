@@ -1,5 +1,5 @@
 import { createPurchaseList } from "./createElementList.js";
-import SHOPPING_LIST from "./itemData.js";
+import SHOPPING_LIST from "./store/itemData.js";
 import { createCartList } from "./cart.js";
 
 const buyBtn = document.querySelector(".buy_btn");
@@ -15,9 +15,15 @@ function showModal() {
     let titleList = JSON.parse(localStorage.getItem(`cartList`));
     const checkBoxes = document.querySelectorAll(".check");
     titleList = titleList.filter((elem, index) => checkBoxes[index].checked);
-    const cartList = SHOPPING_LIST.filter((elem) =>
-        titleList.includes(elem.title)
-    );
+
+    let cartList = [];
+    titleList.forEach((title) => {
+        SHOPPING_LIST.forEach((elem) => {
+            if (elem.title === title) {
+                cartList = [...cartList, elem];
+            }
+        });
+    });
 
     // html 파일에 구매 내역 리스트 생성
     const purchaseContainer = document.querySelector(".purchase_container");
@@ -39,8 +45,6 @@ function hideModal() {
     modal.style.display = "none";
 }
 
-modal_close_btn.addEventListener("click", hideModal);
-
 function purchaseHandler() {
     alert("주문완료");
     modal.style.display = "none";
@@ -53,5 +57,6 @@ function purchaseHandler() {
     total_checkBox.checked = false;
 }
 
+modal_close_btn.addEventListener("click", hideModal);
 buyBtn.addEventListener("click", showModal);
 purchaseBtn.addEventListener("click", purchaseHandler);

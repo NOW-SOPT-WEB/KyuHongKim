@@ -1,12 +1,16 @@
-import SHOPPING_LIST from "./itemData.js";
+import SHOPPING_LIST from "./store/itemData.js";
 
 // 장바구니 구현 함수
 export function createCartList() {
     let titleList = JSON.parse(localStorage.getItem(`cartList`));
-
-    const cartList = SHOPPING_LIST.filter((elem) =>
-        titleList.includes(elem.title)
-    );
+    let cartList = [];
+    titleList.forEach((title) => {
+        SHOPPING_LIST.forEach((elem) => {
+            if (elem.title === title) {
+                cartList = [...cartList, elem];
+            }
+        });
+    });
 
     const cartRow = document.querySelector("#cart_row");
     const tb = document.querySelector(".cart_body");

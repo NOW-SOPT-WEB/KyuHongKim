@@ -1,4 +1,4 @@
-import SHOPPING_LIST from "./itemData.js";
+import SHOPPING_LIST from "./store/itemData.js";
 import { addItemToCart } from "./addItemToCart.js";
 import { createShoppingList } from "./createElementList.js";
 
