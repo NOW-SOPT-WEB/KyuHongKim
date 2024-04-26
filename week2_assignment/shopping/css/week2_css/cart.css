@@ -1,0 +1,211 @@
+body {
+    background-color: #f6f6f5;
+}
+
+.btn {
+    border: 0;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+main {
+    margin-top: 3.75rem;
+}
+
+.cart_btn {
+    border: 0;
+    width: 4rem;
+    height: 2rem;
+    background-color: inherit;
+    cursor: pointer;
+    border-radius: 0.3rem;
+}
+
+/** header css **/
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    position: fixed;
+    top: 0%;
+    z-index: 1000;
+    width: 100%;
+    height: 3.125rem;
+    height: 3.125rem;
+    background-color: #a1b5d8;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+header img {
+    height: 2.5rem;
+}
+
+/** 장바구니 테이블 css **/
+#cart_table {
+    margin: 5rem auto;
+    border: 0.2rem solid;
+    width: 70.4rem;
+    table-layout: fixed;
+}
+
+#cart_table > thead {
+    display: block;
+    width: 70rem;
+    height: 3.5rem;
+    background-color: #8cb8b4;
+    line-height: 3.5rem;
+}
+
+#cart_table > tbody {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 15rem;
+}
+
+#cart_table th,
+td {
+    border: 0.08rem solid;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.cart_body td:nth-child(1) {
+    width: 5%;
+}
+
+thead tr,
+tbody tr {
+    display: table;
+    width: 70rem;
+}
+
+thead th:nth-child(1),
+tbody td:nth-child(1) {
+    width: 5%;
+}
+
+thead th:nth-child(2) {
+    width: 30%;
+}
+
+thead th:nth-child(n + 3) {
+    width: 15%;
+}
+
+tbody td:nth-child(n + 2) {
+    width: 15%;
+}
+
+/** cart item template태그 css **/
+.cartItem {
+    height: 3.5rem;
+}
+
+.cartItem img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.delete_btn {
+    background-color: #ffba08;
+}
+
+/** 구매, 홈 버튼 css **/
+.btn_section {
+    display: flex;
+    margin: 0 auto;
+    width: 9rem;
+}
+
+.buy_btn {
+    margin-right: 1rem;
+    background-color: #003566;
+    color: whitesmoke;
+}
+
+.home_btn {
+    background-color: #c77dff;
+    color: whitesmoke;
+    text-align: center;
+    line-height: 2rem;
+}
+
+/** modal css **/
+.modal_background {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+    padding: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 43rem;
+    height: 70%;
+    background-color: #f6fff8;
+    transform: translate(-50%, -50%);
+}
+
+.modal_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.purchase_btn {
+    margin: 0 auto;
+    background-color: #003566;
+    color: whitesmoke;
+}
+
+.purchase_container {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2%;
+    grid-template-columns: repeat(5, 7rem);
+}
+
+.purchase_item {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 12rem;
+    color: #c77dff;
+}
+
+.purchase_item > img {
+    width: 7rem;
+    height: 9rem;
+    object-fit: cover;
+}
+
+.purchase_item > p {
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+}
+.modal_close_btn {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #ffba08;
+    cursor: pointer;
+}
+
+.total_price {
+    margin: 1rem auto;
+}
