@@ -12,7 +12,7 @@ export function createCartList() {
         });
     });
 
-    const cartRow = document.querySelector("#cart_row");
+    const cartRow = document.getElementById("cart_row");
     const tb = document.querySelector(".cart_body");
     tb.innerHTML = "";
 
