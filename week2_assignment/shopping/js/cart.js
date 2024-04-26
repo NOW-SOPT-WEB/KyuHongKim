@@ -5,9 +5,9 @@ export function createCartList() {
     const titleList = JSON.parse(localStorage.getItem(`cartList`));
     let cartList = [];
     titleList.forEach((title) => {
-        SHOPPING_LIST.forEach((elem) => {
-            if (elem.title === title) {
-                cartList = [...cartList, elem];
+        SHOPPING_LIST.forEach((item) => {
+            if (item.title === title) {
+                cartList = [...cartList, item];
             }
         });
     });
@@ -29,7 +29,7 @@ export function createCartList() {
 
     // 삭제 이벤트 할당
     const deleteBtnList = document.querySelectorAll(".delete_btn");
-    deleteBtnList.forEach((elem) => elem.addEventListener("click", deleteItem));
+    deleteBtnList.forEach((btn) => btn.addEventListener("click", deleteItem));
 }
 
 // 장바구니 상품 삭제 함수
@@ -44,7 +44,7 @@ function deleteItem() {
 const totalCheck = document.querySelector(".total_check");
 function checkWhole() {
     const checkBoxes = document.querySelectorAll(".check");
-    checkBoxes.forEach((elem) => (elem.checked = totalCheck.checked));
+    checkBoxes.forEach((checkBox) => (checkBox.checked = totalCheck.checked));
 }
 
 totalCheck.addEventListener("click", checkWhole);

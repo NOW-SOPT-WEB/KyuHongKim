@@ -1,12 +1,12 @@
 // 필터링된 상품의 element가 담긴 배열 생성 함수
 export function createShoppingList(filterdList) {
-    return filterdList.map((elem) => {
+    return filterdList.map((item) => {
         return `
-            <article class="item ${elem.category}">
-                <img src=${elem.src} alt=${elem.title}/>
+            <article class="item ${item.category}">
+                <img src=${item.src} alt=${item.title}/>
                 <span><i class="fa-regular fa-heart love"></i></span>
-                <span>${elem.title}</span>
-                <span>${elem.price.toLocaleString()}</span>
+                <span>${item.title}</span>
+                <span>${item.price.toLocaleString()}</span>
             </article>
         `;
     });
@@ -14,12 +14,12 @@ export function createShoppingList(filterdList) {
 
 // 결제할 상품의 element가 담긴 배열 생성 함수
 export function createPurchaseList(purchaseList) {
-    return purchaseList.map((elem) => {
+    return purchaseList.map((item) => {
         return `
             <article class="purchase_item">
-                <img src=${elem.src} alt=${elem.title} />
-                <p>${elem.title}</p>
-                <p>${elem.price.toLocaleString()}</p>
+                <img src=${item.src} alt=${item.title} />
+                <p>${item.title}</p>
+                <p>${item.price.toLocaleString()}</p>
             </article>
         `;
     });

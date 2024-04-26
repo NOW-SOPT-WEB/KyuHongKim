@@ -14,7 +14,7 @@ function showModal() {
     // 체크박스 체크된 item들만 필터링
     let titleList = JSON.parse(localStorage.getItem(`cartList`));
     const checkBoxes = document.querySelectorAll(".check");
-    titleList = titleList.filter((elem, index) => checkBoxes[index].checked);
+    titleList = titleList.filter((_, index) => checkBoxes[index].checked);
 
     let cartList = [];
     titleList.forEach((title) => {

@@ -6,9 +6,9 @@ const section = document.querySelector(".shoppingList_container");
 
 // 왼쪽 nav바의 버튼들에 상품 필터링 이벤트 적용
 const btnList = document.querySelectorAll(".nav_btn");
-btnList.forEach((elem) => {
-    elem.addEventListener("click", () => {
-        showShoppingList(`${elem.className.split("_")[0]}`);
+btnList.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        showShoppingList(`${btn.className.split("_")[0]}`);
     });
 });
 
@@ -31,7 +31,7 @@ function showShoppingList(category) {
 
     // 삽입된 상품 요소에 click시 장바구니추가 이벤트 적용
     const items = document.querySelectorAll(".item");
-    items.forEach((elem) => elem.addEventListener("click", addItemToCart));
+    items.forEach((item) => item.addEventListener("click", addItemToCart));
 }
 
 // 첫 화면에서 전체 상품 랜더링
