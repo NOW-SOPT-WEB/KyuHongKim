@@ -41,13 +41,13 @@ function deleteItem() {
 }
 
 // 전체 체크
-const totalChcek = document.querySelector(".total_check");
+const totalCheck = document.querySelector(".total_check");
 function checkWhole() {
     const checkBoxes = document.querySelectorAll(".check");
-    checkBoxes.forEach((elem) => (elem.checked = totalChcek.checked));
+    checkBoxes.forEach((elem) => (elem.checked = totalCheck.checked));
 }
 
-totalChcek.addEventListener("click", checkWhole);
+totalCheck.addEventListener("click", checkWhole);
 
 // 최초 랜더링
 createCartList();
