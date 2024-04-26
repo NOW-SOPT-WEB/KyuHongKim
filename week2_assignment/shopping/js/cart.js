@@ -2,7 +2,7 @@ import SHOPPING_LIST from "./store/itemData.js";
 
 // 장바구니 구현 함수
 export function createCartList() {
-    let titleList = JSON.parse(localStorage.getItem(`cartList`));
+    const titleList = JSON.parse(localStorage.getItem(`cartList`));
     let cartList = [];
     titleList.forEach((title) => {
         SHOPPING_LIST.forEach((elem) => {
@@ -28,13 +28,13 @@ export function createCartList() {
     });
 
     // 삭제 이벤트 할당
-    let deleteBtnList = document.querySelectorAll(".delete_btn");
+    const deleteBtnList = document.querySelectorAll(".delete_btn");
     deleteBtnList.forEach((elem) => elem.addEventListener("click", deleteItem));
 }
 
 // 장바구니 상품 삭제 함수
 function deleteItem() {
-    let titleList = JSON.parse(localStorage.getItem(`cartList`));
+    const titleList = JSON.parse(localStorage.getItem(`cartList`));
     titleList.splice(this.closest("tr").rowIndex - 1, 1);
     localStorage.setItem("cartList", JSON.stringify(titleList));
     createCartList();
