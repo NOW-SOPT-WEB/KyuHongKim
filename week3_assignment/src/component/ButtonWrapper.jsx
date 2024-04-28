@@ -11,10 +11,12 @@ const ButtonWrapper = () => {
 };
 
 const ButtonLayout = styled.section`
-    width: 100%;
     margin: 0 auto;
     display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
 `;
+
 const LevelButton = styled.button`
     width: 5rem;
     height: 2rem;
@@ -23,7 +25,7 @@ const LevelButton = styled.button`
     border: solid 0;
     border-radius: 0.5rem;
     cursor: pointer;
-    font-size: ${({ theme }) => theme.fonts.lg};
+    font-size: ${({ theme }) => theme.fonts.md};
 `;
 
 export default ButtonWrapper;
