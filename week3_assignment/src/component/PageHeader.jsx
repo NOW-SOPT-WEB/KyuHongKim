@@ -17,7 +17,7 @@ const PageHeader = () => {
 const HeaderLayout = styled.header`
     width: 100%;
     height: 7rem;
-    background-color: #8ecae6;
+    background-color: ${({ theme }) => theme.colors.skyBlue};
     display: flex;
 `;
 
@@ -30,12 +30,12 @@ const TitleContainer = styled.section`
 `;
 
 const Title = styled.h1`
-    font-size: 3rem;
+    font-size: ${({ theme }) => theme.fonts.xxl};
     color: whitesmoke;
 `;
 
 const Score = styled.span`
-    font-size: 2rem;
+    font-size: ${({ theme }) => theme.fonts.xl};
     color: whitesmoke;
 `;
 
@@ -45,12 +45,12 @@ const ResetBtn = styled.button`
     top: 1rem;
     width: 10rem;
     height: 4rem;
-    background-color: #ffb703;
+    background-color: ${({ theme }) => theme.colors.lightOrange};
     color: whitesmoke;
     border: solid 0;
     border-radius: 0.5rem;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: ${({ theme }) => theme.fonts.lg};
 `;
 
 export default PageHeader;

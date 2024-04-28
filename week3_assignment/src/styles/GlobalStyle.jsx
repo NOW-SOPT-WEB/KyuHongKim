@@ -1,6 +1,6 @@
-import { css } from "@emotion/react";
+import { Global, css } from "@emotion/react";
 
-export const GlobalSytle = css`
+const style = css`
     html,
     body,
     div,
@@ -126,3 +126,9 @@ export const GlobalSytle = css`
         border-spacing: 0;
     }
 `;
+
+const GlobalStyle = () => {
+    return <Global styles={style} />;
+};
+
+export default GlobalStyle;
