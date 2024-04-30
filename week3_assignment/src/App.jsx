@@ -20,24 +20,27 @@ const controlReverse = (isReverse, key) => {
 };
 
 function App() {
+    // 초기값들
     const [score, setScore] = useState(0);
     const [level, setLevel] = useState(5);
-
     const [cardArray, setCardArray] = useState(selectCards(9, level));
 
-    const reverseInitial = Array.from({ length: level }, () => false);
-    const [isReverse, setIsReverse] = useState([
-        ...reverseInitial,
-        ...reverseInitial,
-    ]);
+    const booleanArray = Array.from({ length: level }, () => false);
+    const booleanInitial = [...booleanArray, ...booleanArray];
+    const [isReverse, setIsReverse] = useState([booleanInitial]);
 
-    const disable = useRef([...reverseInitial, ...reverseInitial]);
+    const disable = useRef(booleanInitial);
 
+    // 첫번째 클릭한 카드
     const [selectCard, setSelectCard] = useState();
 
-    useEffect(() => {
+    const resetValues = () => {
         setCardArray(selectCards(9, level));
-        setIsReverse([...reverseInitial, ...reverseInitial]);
+        setIsReverse(booleanInitial);
+        setScore(0);
+    };
+    useEffect(() => {
+        resetValues();
     }, [level]);
 
     // card click 했을때
@@ -96,8 +99,6 @@ function App() {
     // level 버튼 클릭했을때
     const levelClickHandler = (level) => {
         setLevel(level);
-        setIsReverse([...reverseInitial, ...reverseInitial]);
-        setScore(0);
     };
 
     // modal
@@ -106,20 +107,9 @@ function App() {
         modalRef.current.showModal();
     }
 
-    const resetHandler = () => {
-        setCardArray(selectCards(9, level));
-        setIsReverse([...reverseInitial, ...reverseInitial]);
-        setScore(0);
-        for (let i = 0; i < disable.current.length; i++) {
-            disable.current[i] = false;
-        }
-    };
-
     const modalCloseHandler = () => {
         modalRef.current.close();
-        setCardArray(selectCards(9, level));
-        setIsReverse([...reverseInitial, ...reverseInitial]);
-        setScore(0);
+        resetValues();
     };
 
     return (
@@ -129,7 +119,7 @@ function App() {
             <PageHeader
                 score={score}
                 level={level}
-                resetHandler={resetHandler}
+                resetHandler={resetValues}
             />
             <MainLayout>
                 <ButtonWrapper levelClickHandler={levelClickHandler} />
@@ -154,6 +144,7 @@ const CardList = styled.section`
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin-top: 1rem;
     gap: 0.3rem;
 `;
 
