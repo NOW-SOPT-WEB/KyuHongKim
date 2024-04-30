@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
+import MyButton from "./MyButton";
 const Modal = ({ modalRef, modalCloseHandler }) => {
     return (
         <ModalWrapper
@@ -37,15 +38,12 @@ const ModalTitle = styled.h1`
     color: white;
     margin-top: 1rem;
 `;
-const RtnGameBtn = styled.button`
+const RtnGameBtn = styled(MyButton)`
     margin-top: 2rem;
     width: 15rem;
     height: 3rem;
-    color: white;
-    font-size: ${({ theme }) => theme.fonts.md};
-    background-color: ${({ theme }) => theme.colors.indigo};
-    cursor: pointer;
     border: 0;
-    border-radius: 1rem;
+    background-color: ${({ theme }) => theme.colors.indigo};
+    font-size: ${({ theme }) => theme.fonts.md};
 `;
 export default Modal;

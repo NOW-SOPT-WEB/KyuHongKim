@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import MyButton from "./util/MyButton";
 
 const PageHeader = ({ score, level, resetHandler }) => {
     return (
@@ -39,18 +40,14 @@ const Score = styled.span`
     color: whitesmoke;
 `;
 
-const ResetBtn = styled.button`
+const ResetBtn = styled(MyButton)`
     position: fixed;
     right: 0.5rem;
     top: 1rem;
     width: 10rem;
     height: 4rem;
     background-color: ${({ theme }) => theme.colors.lightOrange};
-    color: whitesmoke;
-    border: solid 0;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-size: ${({ theme }) => theme.fonts.lg};
+    font-size: ${({ theme }) => theme.fonts.xl};
 `;
 
 export default PageHeader;
