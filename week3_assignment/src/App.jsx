@@ -8,15 +8,11 @@ import Modal from "./component/util/Modal";
 import PageHeader from "./component/PageHeader";
 import ButtonWrapper from "./component/ButtonWrapper";
 
+// 뒤집어 줘야하는 카드 표시해주는 함수
 const controlReverse = (isReverse, key) => {
-    const temp = isReverse.map((elem, index) => {
-        if (key === index) {
-            return !elem;
-        } else {
-            return elem;
-        }
+    return isReverse.map((elem, index) => {
+        return key === index ? !elem : elem;
     });
-    return temp;
 };
 
 function App() {
@@ -25,20 +21,30 @@ function App() {
     const [level, setLevel] = useState(5);
     const [cardArray, setCardArray] = useState(selectCards(9, level));
 
+    // 카드 수 만큼의 false 값 담긴 배열 생성
     const booleanArray = Array.from({ length: level }, () => false);
     const booleanInitial = [...booleanArray, ...booleanArray];
-    const [isReverse, setIsReverse] = useState([booleanInitial]);
 
-    const disable = useRef(booleanInitial);
+    // 뒤집혀야할 카드 표시 배열
+    const [isReverse, setIsReverse] = useState(booleanInitial);
 
-    // 첫번째 클릭한 카드
+    // 첫번째 클릭한 카드 담는 state
     const [selectCard, setSelectCard] = useState();
 
+    // 클릭 금지 카드 표시 배열
+    const disable = useRef(booleanInitial);
+
+    // modal
+    const modalRef = useRef();
+
+    // 화면 초기화
     const resetValues = () => {
         setCardArray(selectCards(9, level));
         setIsReverse(booleanInitial);
         setScore(0);
     };
+
+    // level 달라질때 화면 초기화
     useEffect(() => {
         resetValues();
     }, [level]);
@@ -52,31 +58,38 @@ function App() {
         } else {
             let temp = [];
 
+            // 선택된 두 카드 제외하고 클릭 금지
             for (let i = 0; i < disable.current.length; i++) {
                 if (!disable.current[i]) {
                     disable.current[i] = true;
                     temp.push(i);
                 }
             }
-
+            // 두 카드가 같은 경우
             if (selectCard.id === id) {
+                // 점수+1
                 setScore((prevState) => {
                     return prevState + 1;
                 });
+                // 두 카드 클릭 금지 지정
                 disable.current[key] = true;
                 disable.current[selectCard.key] = true;
+                // 나머지 카드 클릭 허용
                 for (let i = 0; i < disable.current.length; i++) {
                     if (temp.includes(i)) disable.current[i] = false;
                 }
             } else {
+                // 두카드가 다른 경우 1초 있다 다시 뒤집어주기
                 setTimeout(() => {
                     setIsReverse(controlReverse(isReverse, key));
                     setIsReverse(controlReverse(isReverse, selectCard.key));
+                    // 나머지 카드 클릭 허용
                     for (let i = 0; i < disable.current.length; i++) {
                         if (temp.includes(i)) disable.current[i] = false;
                     }
                 }, 1000);
             }
+            // 카드 선택 초기화
             setSelectCard();
         }
     };
@@ -101,12 +114,12 @@ function App() {
         setLevel(level);
     };
 
-    // modal
-    const modalRef = useRef();
+    // 다 맞췄을 경우 모달 띄어주기
     if (score === level) {
         modalRef.current.showModal();
     }
 
+    // 모달 닫으면 리셋
     const modalCloseHandler = () => {
         modalRef.current.close();
         resetValues();
