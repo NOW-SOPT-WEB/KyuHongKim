@@ -1,12 +1,11 @@
 import "./App.css";
 import styled from "@emotion/styled";
-
 import GlobalStyle from "./styles/GlobalStyle";
-
 import { useEffect, useState, useRef } from "react";
-import { selectCards, shuffle } from "./component/util/cardSelect";
+import { selectCards } from "./component/util/cardSelect";
 import Card from "./component/Card";
 import Modal from "./component/util/Modal";
+import PageHeader from "./component/PageHeader";
 
 const controlReverse = (isReverse, key) => {
     const temp = isReverse.map((elem, index) => {
@@ -125,15 +124,11 @@ function App() {
         <>
             <Modal modalRef={modalRef} modalCloseHandler={modalCloseHandler} />
             <GlobalStyle />
-            <HeaderLayout>
-                <TitleContainer>
-                    <Title>맞추기</Title>
-                    <Score>
-                        {score}/{level}
-                    </Score>
-                </TitleContainer>
-                <ResetBtn onClick={resetHandler}>Reset</ResetBtn>
-            </HeaderLayout>
+            <PageHeader
+                score={score}
+                level={level}
+                resetHandler={resetHandler}
+            />
             <MainLayout>
                 <ButtonLayout>
                     <LevelButton onClick={() => levelClickHandler(5)}>
@@ -151,46 +146,6 @@ function App() {
         </>
     );
 }
-
-// header
-const HeaderLayout = styled.header`
-    width: 100%;
-    height: 7rem;
-    background-color: ${({ theme }) => theme.colors.skyBlue};
-    display: flex;
-`;
-
-const TitleContainer = styled.section`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-`;
-
-const Title = styled.h1`
-    font-size: ${({ theme }) => theme.fonts.xxl};
-    color: whitesmoke;
-`;
-
-const Score = styled.span`
-    font-size: ${({ theme }) => theme.fonts.xl};
-    color: whitesmoke;
-`;
-
-const ResetBtn = styled.button`
-    position: fixed;
-    right: 0.5rem;
-    top: 1rem;
-    width: 10rem;
-    height: 4rem;
-    background-color: ${({ theme }) => theme.colors.lightOrange};
-    color: whitesmoke;
-    border: solid 0;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-size: ${({ theme }) => theme.fonts.lg};
-`;
 
 // main
 const MainLayout = styled.main`
