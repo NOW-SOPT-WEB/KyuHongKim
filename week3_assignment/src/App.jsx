@@ -6,6 +6,7 @@ import { selectCards } from "./component/util/cardSelect";
 import Card from "./component/Card";
 import Modal from "./component/util/Modal";
 import PageHeader from "./component/PageHeader";
+import ButtonWrapper from "./component/ButtonWrapper";
 
 const controlReverse = (isReverse, key) => {
     const temp = isReverse.map((elem, index) => {
@@ -120,6 +121,7 @@ function App() {
         setIsReverse([...reverseInitial, ...reverseInitial]);
         setScore(0);
     };
+
     return (
         <>
             <Modal modalRef={modalRef} modalCloseHandler={modalCloseHandler} />
@@ -130,17 +132,7 @@ function App() {
                 resetHandler={resetHandler}
             />
             <MainLayout>
-                <ButtonLayout>
-                    <LevelButton onClick={() => levelClickHandler(5)}>
-                        Easy
-                    </LevelButton>
-                    <LevelButton onClick={() => levelClickHandler(7)}>
-                        Normal
-                    </LevelButton>
-                    <LevelButton onClick={() => levelClickHandler(9)}>
-                        Hard
-                    </LevelButton>
-                </ButtonLayout>
+                <ButtonWrapper levelClickHandler={levelClickHandler} />
                 <CardList>{cardComponents}</CardList>
             </MainLayout>
         </>
@@ -163,25 +155,6 @@ const CardList = styled.section`
     align-items: center;
     justify-content: center;
     gap: 0.3rem;
-`;
-
-// button section
-const ButtonLayout = styled.section`
-    margin: 0 auto;
-    display: flex;
-    gap: 2rem;
-    margin-top: 3rem;
-`;
-
-const LevelButton = styled.button`
-    width: 5rem;
-    height: 2rem;
-    background-color: ${({ theme }) => theme.colors.lightOrange};
-    color: whitesmoke;
-    border: solid 0;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-size: ${({ theme }) => theme.fonts.md};
 `;
 
 export default App;
