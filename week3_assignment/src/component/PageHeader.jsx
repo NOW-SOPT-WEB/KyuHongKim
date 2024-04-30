@@ -1,12 +1,14 @@
 import styled from "@emotion/styled";
 
-const PageHeader = () => {
+const PageHeader = (props) => {
     return (
         <>
             <HeaderLayout>
                 <TitleContainer>
                     <Title>맞추기</Title>
-                    <Score>0/5</Score>
+                    <Score>
+                        {props.score}/{props.level}
+                    </Score>
                 </TitleContainer>
                 <ResetBtn>Reset</ResetBtn>
             </HeaderLayout>

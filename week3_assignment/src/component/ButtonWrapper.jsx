@@ -1,11 +1,16 @@
 import styled from "@emotion/styled";
 
-const ButtonWrapper = () => {
+const ButtonWrapper = (props) => {
+    const levelClickHandler = (level) => {
+        props.setLevel(level);
+    };
     return (
         <ButtonLayout>
-            <LevelButton>Easy</LevelButton>
-            <LevelButton>Normal</LevelButton>
-            <LevelButton>Hard</LevelButton>
+            <LevelButton onClick={() => levelClickHandler(5)}>Easy</LevelButton>
+            <LevelButton onClick={() => levelClickHandler(7)}>
+                Normal
+            </LevelButton>
+            <LevelButton onClick={() => levelClickHandler(9)}>Hard</LevelButton>
         </ButtonLayout>
     );
 };
