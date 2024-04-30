@@ -6,6 +6,7 @@ import GlobalStyle from "./styles/GlobalStyle";
 import { useEffect, useState, useRef } from "react";
 import { selectCards, shuffle } from "./component/util/cardSelect";
 import Card from "./component/Card";
+import Modal from "./component/util/Modal";
 
 const controlReverse = (isReverse, key) => {
     const temp = isReverse.map((elem, index) => {
@@ -41,7 +42,6 @@ function App() {
 
     // card click 했을때
     const cardClickHandler = (key, id) => {
-        console.log("click", key, id);
         setIsReverse(controlReverse(isReverse, key));
 
         if (!selectCard) {
@@ -88,7 +88,7 @@ function App() {
                 src={elem.src}
                 cardClickHandler={cardClickHandler}
                 isReverse={isReverse}
-                disable={disable}
+                disable={disable.current}
             />
         );
     });
@@ -123,18 +123,7 @@ function App() {
     };
     return (
         <>
-            <dialog
-                ref={modalRef}
-                className="px-20 py-10 outline-none text-lg font-semibold backdrop:bg-black backdrop:opacity-70"
-            >
-                <h1>게임 클리어!</h1>
-                <button
-                    onClick={modalCloseHandler}
-                    className="mx-auto px-5 py-2 w-full bg-red-400 outline-none"
-                >
-                    게임으로 돌아가기
-                </button>
-            </dialog>
+            <Modal modalRef={modalRef} modalCloseHandler={modalCloseHandler} />
             <GlobalStyle />
             <HeaderLayout>
                 <TitleContainer>

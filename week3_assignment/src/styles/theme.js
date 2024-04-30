@@ -1,6 +1,9 @@
 const colors = {
     skyBlue: "#8ECAE6",
     lightOrange: "#FFB703",
+    orange: "#FB8500",
+    blue: "#219EBC",
+    indigo: "#023047",
 };
 
 const fonts = {

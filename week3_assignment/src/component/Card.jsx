@@ -1,13 +1,11 @@
 import styled from "@emotion/styled";
-import { useRef, useState } from "react";
 
 const Card = ({ index, id, src, cardClickHandler, isReverse, disable }) => {
-    console.log(index, id);
     return (
         <CardWrapper
             key={index}
             onClick={() => cardClickHandler(index, id)}
-            disable={disable.current[index]}
+            disable={disable[index]}
         >
             <CardLayout isReverse={isReverse[index]}>
                 <Front style={{ backgroundImage: `url(${src})` }}></Front>
