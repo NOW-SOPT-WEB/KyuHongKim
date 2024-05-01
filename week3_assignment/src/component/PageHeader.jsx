@@ -5,7 +5,7 @@ const PageHeader = ({ score, level, resetHandler }) => {
     return (
         <HeaderLayout>
             <TitleContainer>
-                <Title>맞추기</Title>
+                <Title>연예인 맞추기</Title>
                 <Score>
                     {score}/{level}
                 </Score>
@@ -32,6 +32,7 @@ const TitleContainer = styled.section`
 
 const Title = styled.h1`
     font-size: ${({ theme }) => theme.fonts.xxl};
+    font-weight: 600;
     color: whitesmoke;
 `;
 
