@@ -53,9 +53,11 @@ function App() {
     const matchCardHandler = (key, id, temp) => {
         if (selectCard.id === id) {
             // 점수+1
-            setScore((prevState) => {
-                return prevState + 1;
-            });
+            setScore((prevState) => prevState + 1);
+            // 다 맞췄을 경우 모달 띄어주기
+            if (score === level) {
+                modalRef.current.showModal();
+            }
             // 두 카드 클릭 금지 지정
             disable.current[key] = true;
             disable.current[selectCard.key] = true;
@@ -117,11 +119,6 @@ function App() {
     const levelClickHandler = (level) => {
         setLevel(level);
     };
-
-    // 다 맞췄을 경우 모달 띄어주기
-    if (score === level) {
-        modalRef.current.showModal();
-    }
 
     // 모달 닫으면 리셋
     const modalCloseHandler = () => {
