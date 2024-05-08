@@ -54,14 +54,13 @@ function App() {
         if (selectCard.id === id) {
             // 점수+1
             setScore((prevState) => prevState + 1);
-
-            // 두 카드 클릭 금지 지정
-            disable.current[key] = true;
-            disable.current[selectCard.key] = true;
             // 나머지 카드 클릭 허용
             for (let i = 0; i < disable.current.length; i++) {
                 if (temp.includes(i)) disable.current[i] = false;
             }
+            // 두 카드 클릭 금지 지정
+            disable.current[key] = true;
+            disable.current[selectCard.key] = true;
         } else {
             // 두카드가 다른 경우 1초 있다 다시 뒤집어주기
             setTimeout(() => {
@@ -83,6 +82,7 @@ function App() {
 
         if (!selectCard) {
             setSelectCard({ key: key, id: id });
+            disable.current[key] = true;
         } else {
             let temp = [];
 
