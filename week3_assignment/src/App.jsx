@@ -49,6 +49,32 @@ function App() {
         resetValues();
     }, [level]);
 
+    const matchCardHandler = (key, id, temp) => {
+        if (selectCard.id === id) {
+            // 점수+1
+            setScore((prevState) => {
+                return prevState + 1;
+            });
+            // 두 카드 클릭 금지 지정
+            disable.current[key] = true;
+            disable.current[selectCard.key] = true;
+            // 나머지 카드 클릭 허용
+            for (let i = 0; i < disable.current.length; i++) {
+                if (temp.includes(i)) disable.current[i] = false;
+            }
+        } else {
+            // 두카드가 다른 경우 1초 있다 다시 뒤집어주기
+            setTimeout(() => {
+                setIsReverse(controlReverse(isReverse, key));
+                setIsReverse(controlReverse(isReverse, selectCard.key));
+                // 나머지 카드 클릭 허용
+                for (let i = 0; i < disable.current.length; i++) {
+                    if (temp.includes(i)) disable.current[i] = false;
+                }
+            }, 1000);
+        }
+    };
+
     // card click 했을때
     const cardClickHandler = (key, id) => {
         setIsReverse(controlReverse(isReverse, key));
@@ -65,30 +91,7 @@ function App() {
                     temp.push(i);
                 }
             }
-            // 두 카드가 같은 경우
-            if (selectCard.id === id) {
-                // 점수+1
-                setScore((prevState) => {
-                    return prevState + 1;
-                });
-                // 두 카드 클릭 금지 지정
-                disable.current[key] = true;
-                disable.current[selectCard.key] = true;
-                // 나머지 카드 클릭 허용
-                for (let i = 0; i < disable.current.length; i++) {
-                    if (temp.includes(i)) disable.current[i] = false;
-                }
-            } else {
-                // 두카드가 다른 경우 1초 있다 다시 뒤집어주기
-                setTimeout(() => {
-                    setIsReverse(controlReverse(isReverse, key));
-                    setIsReverse(controlReverse(isReverse, selectCard.key));
-                    // 나머지 카드 클릭 허용
-                    for (let i = 0; i < disable.current.length; i++) {
-                        if (temp.includes(i)) disable.current[i] = false;
-                    }
-                }, 1000);
-            }
+            matchCardHandler(key, id, temp);
             // 카드 선택 초기화
             setSelectCard();
         }
