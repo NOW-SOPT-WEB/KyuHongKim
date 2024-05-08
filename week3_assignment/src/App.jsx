@@ -30,7 +30,7 @@ function App() {
     const [isReverse, setIsReverse] = useState(booleanInitial);
 
     // 첫번째 클릭한 카드 담는 state
-    const [selectCard, setSelectCard] = useState();
+    const [selectCard, setSelectCard] = useState({});
 
     // 클릭 금지 카드 표시 배열
     const disable = useRef(booleanInitial);
