@@ -33,12 +33,12 @@ const TitleContainer = styled.section`
 const Title = styled.h1`
     font-size: ${({ theme }) => theme.fonts.xxl};
     font-weight: 600;
-    color: whitesmoke;
+    color: ${({ theme }) => theme.colors.whiteSmoke};
 `;
 
 const Score = styled.span`
     font-size: ${({ theme }) => theme.fonts.xl};
-    color: whitesmoke;
+    color: ${({ theme }) => theme.colors.whiteSmoke};
 `;
 
 const ResetBtn = styled(MyButton)`

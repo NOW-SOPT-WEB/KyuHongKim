@@ -40,7 +40,7 @@ function App() {
 
     // 화면 초기화
     const resetValues = () => {
-        setCardArray(selectCards(9, level));
+        setCardArray(selectCards(level));
         setIsReverse(booleanInitial);
         setScore(0);
     };
@@ -54,10 +54,7 @@ function App() {
         if (selectCard.id === id) {
             // 점수+1
             setScore((prevState) => prevState + 1);
-            // 다 맞췄을 경우 모달 띄어주기
-            if (score === level) {
-                modalRef.current.showModal();
-            }
+
             // 두 카드 클릭 금지 지정
             disable.current[key] = true;
             disable.current[selectCard.key] = true;
@@ -95,6 +92,7 @@ function App() {
                 }
             }
             matchCardHandler(key, id, temp);
+
             // 카드 선택 초기화
             setSelectCard();
         }
@@ -125,7 +123,10 @@ function App() {
         modalRef.current.close();
         resetValues();
     };
-
+    // 다 맞췄을 경우 모달 띄어주기
+    if (score === level) {
+        modalRef.current.showModal();
+    }
     return (
         <ThemeProvider theme={theme}>
             <Modal modalRef={modalRef} modalCloseHandler={modalCloseHandler} />

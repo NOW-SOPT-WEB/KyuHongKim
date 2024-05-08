@@ -4,6 +4,7 @@ const colors = {
     orange: "#FB8500",
     blue: "#219EBC",
     indigo: "#023047",
+    whiteSmoke: "#f5f5f5",
 };
 
 const fonts = {

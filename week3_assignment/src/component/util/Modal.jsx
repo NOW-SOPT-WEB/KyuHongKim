@@ -3,10 +3,7 @@ import React from "react";
 import MyButton from "./MyButton";
 const Modal = ({ modalRef, modalCloseHandler }) => {
     return (
-        <ModalWrapper
-            ref={modalRef}
-            className="px-20 py-10 outline-none text-lg font-semibold backdrop:bg-black backdrop:opacity-70"
-        >
+        <ModalWrapper ref={modalRef}>
             <ModalLayout>
                 <ModalTitle>🔥 카드 까뒤집기 성공 🔥</ModalTitle>
                 <RtnGameBtn
