@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
-import MyButton from "./util/MyButton";
-
+import MyButton from "./common/MyButton";
 const PageHeader = ({ score, level, resetHandler }) => {
     return (
         <HeaderLayout>

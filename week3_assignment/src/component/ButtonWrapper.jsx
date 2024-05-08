@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import MyButton from "./util/MyButton";
+import MyButton from "./common/MyButton";
 
 const ButtonWrapper = ({ levelClickHandler }) => {
     return (
