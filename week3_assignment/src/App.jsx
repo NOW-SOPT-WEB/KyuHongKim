@@ -65,8 +65,10 @@ function App() {
         } else {
             // 두카드가 다른 경우 1초 있다 다시 뒤집어주기
             setTimeout(() => {
-                setIsReverse(controlReverse(isReverse, key));
-                setIsReverse(controlReverse(isReverse, selectCard.key));
+                setIsReverse((prevState) => controlReverse(prevState, key));
+                setIsReverse((prevState) =>
+                    controlReverse(prevState, selectCard.key)
+                );
                 // 나머지 카드 클릭 허용
                 for (let i = 0; i < disable.current.length; i++) {
                     if (temp.includes(i)) disable.current[i] = false;
