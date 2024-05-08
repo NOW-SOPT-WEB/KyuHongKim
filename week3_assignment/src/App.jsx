@@ -24,8 +24,7 @@ function App() {
     const [cardArray, setCardArray] = useState(selectCards(level));
 
     // 카드 수 만큼의 false 값 담긴 배열 생성
-    const booleanArray = Array.from({ length: level }, () => false);
-    const booleanInitial = [...booleanArray, ...booleanArray];
+    const booleanInitial = Array.from({ length: level * 2 }, () => false);
 
     // 뒤집혀야할 카드 표시 배열
     const [isReverse, setIsReverse] = useState(booleanInitial);
