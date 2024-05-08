@@ -7,6 +7,8 @@ import Card from "./component/Card";
 import Modal from "./component/util/Modal";
 import PageHeader from "./component/PageHeader";
 import ButtonWrapper from "./component/ButtonWrapper";
+import { ThemeProvider } from "@emotion/react";
+import theme from "./styles/theme.js";
 
 // 뒤집어 줘야하는 카드 표시해주는 함수
 const controlReverse = (isReverse, key) => {
@@ -19,7 +21,7 @@ function App() {
     // 초기값들
     const [score, setScore] = useState(0);
     const [level, setLevel] = useState(5);
-    const [cardArray, setCardArray] = useState(selectCards(9, level));
+    const [cardArray, setCardArray] = useState(selectCards(level));
 
     // 카드 수 만큼의 false 값 담긴 배열 생성
     const booleanArray = Array.from({ length: level }, () => false);
@@ -129,7 +131,7 @@ function App() {
     };
 
     return (
-        <>
+        <ThemeProvider theme={theme}>
             <Modal modalRef={modalRef} modalCloseHandler={modalCloseHandler} />
             <GlobalStyle />
             <PageHeader
@@ -141,7 +143,7 @@ function App() {
                 <ButtonWrapper levelClickHandler={levelClickHandler} />
                 <CardList>{cardComponents}</CardList>
             </MainLayout>
-        </>
+        </ThemeProvider>
     );
 }
 
