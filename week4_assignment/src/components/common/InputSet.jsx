@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const InputSet = ({ type, labelText, inputId }) => {
   return (
     <InputWrapper>
-      <InputLabel for={inputId}>{labelText}</InputLabel>
+      <InputLabel htmlFor={inputId}>{labelText}</InputLabel>
       <Input type={type} id={inputId} />
     </InputWrapper>
   );

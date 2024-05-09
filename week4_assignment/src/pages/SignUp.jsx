@@ -2,22 +2,24 @@ import styled from 'styled-components';
 import { Button } from '../components/common/Button';
 import InputSet from '../components/common/InputSet';
 
-const LoginPage = () => {
+const SignUpPage = () => {
   return (
-    <LoginPageContainer>
-      <LoginTitle>Login</LoginTitle>
-      <LoginImg src="src/assets/flower.jpg" />
-      <InputSet type="string" labelText="ID" inputId="ID" />
-      <InputSet type="pw" labelText="PW" inputId="PW" />
+    <SignUpPageContainer>
+      <SignUpTitle>회원가입 페이지</SignUpTitle>
+
+      <InputSet type="string" labelText="ID" inputId="id" />
+      <InputSet type="pw" labelText="비밀번호" inputId="pw" />
+      <InputSet type="string" labelText="닉네임" inputId="nickname" />
+      <InputSet type="string" labelText="전화번호" inputId="callNum" />
       <ButtonWrapper>
-        <Button>로그인</Button>
         <Button>회원가입</Button>
+        <Button>뒤로가기</Button>
       </ButtonWrapper>
-    </LoginPageContainer>
+    </SignUpPageContainer>
   );
 };
 
-const LoginPageContainer = styled.main`
+const SignUpPageContainer = styled.main`
   margin: 5rem auto;
   display: flex;
   flex-direction: column;
@@ -29,15 +31,10 @@ const LoginPageContainer = styled.main`
   border: 1rem;
 `;
 
-const LoginTitle = styled.h3`
+const SignUpTitle = styled.h3`
   height: 5rem;
   line-height: 5rem;
   font-size: ${({ theme }) => theme.fonts.xl};
-`;
-
-const LoginImg = styled.img`
-  height: 10rem;
-  width: 10rem;
 `;
 
 const ButtonWrapper = styled.div`
@@ -47,4 +44,4 @@ const ButtonWrapper = styled.div`
   align-items: center;
 `;
 
-export default LoginPage;
+export default SignUpPage;
