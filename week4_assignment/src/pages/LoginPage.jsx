@@ -1,18 +1,68 @@
 import styled from 'styled-components';
 import { Button } from '../components/common/Button';
 import InputSet from '../components/common/InputSet';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { BASE_URL } from '../constants';
+import { useState } from 'react';
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+
+  const [showError, setShowError] = useState({
+    email: false,
+    password: false,
+  });
+
+  const axiosLoginHandler = async (loginData) => {
+    try {
+      const response = await axios.post(`${BASE_URL}/member/login`, loginData);
+
+      const memberId = response.headers.location;
+      navigate(`/main/${memberId}`);
+    } catch (error) {
+      const errorMessage = error.response.data.message;
+      alert(errorMessage);
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const fd = new FormData(event.target);
+    const loginData = Object.fromEntries(fd.entries());
+
+    axiosLoginHandler(loginData);
+  };
+
+  const handleInputBlur = (value) => {
+    if (!value) {
+    }
+  };
   return (
     <LoginPageContainer>
       <LoginTitle>Login</LoginTitle>
       <LoginImg src="src/assets/flower.jpg" />
-      <InputSet type="string" labelText="ID" inputId="ID" />
-      <InputSet type="pw" labelText="PW" inputId="PW" />
-      <ButtonWrapper>
-        <Button>로그인</Button>
-        <Button>회원가입</Button>
-      </ButtonWrapper>
+      <LoginForm onSubmit={handleSubmit}>
+        <InputSet
+          type="text"
+          labelText="ID"
+          id="authenticationId"
+          name="authenticationId"
+          onBlur={(event) => handleInputBlur()}
+        />
+        <InputSet type="text" labelText="PW" id="password" name="password" />
+        <ButtonWrapper>
+          <Button>로그인</Button>
+          <Button
+            onClick={() => {
+              navigate('/signUp');
+            }}
+            type="button">
+            회원가입
+          </Button>
+        </ButtonWrapper>
+      </LoginForm>
     </LoginPageContainer>
   );
 };
@@ -40,6 +90,7 @@ const LoginImg = styled.img`
   width: 10rem;
 `;
 
+const LoginForm = styled.form``;
 const ButtonWrapper = styled.div`
   display: flex;
   gap: 1rem;

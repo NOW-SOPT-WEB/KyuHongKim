@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const InputSet = ({ type, labelText, inputId }) => {
+const InputSet = ({ type, labelText, id, name }) => {
   return (
     <InputWrapper>
-      <InputLabel htmlFor={inputId}>{labelText}</InputLabel>
-      <Input type={type} id={inputId} />
+      <InputLabel htmlFor={id}>{labelText}</InputLabel>
+      <Input type={type} id={id} name={name} />
     </InputWrapper>
   );
 };
@@ -18,11 +18,11 @@ const InputWrapper = styled.section`
 
 const Input = styled.input`
   width: 90%;
-  height: 3rem;
+  height: 2rem;
   border-radius: 3px;
 `;
 
 const InputLabel = styled.label`
-  font-size: ${({ theme }) => theme.fonts.lg};
+  font-size: ${({ theme }) => theme.fonts.md};
 `;
 export default InputSet;

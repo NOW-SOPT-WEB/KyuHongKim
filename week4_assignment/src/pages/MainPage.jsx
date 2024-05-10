@@ -1,13 +1,36 @@
 import styled from 'styled-components';
 import { Button } from '../components/common/Button';
+import { useNavigate, useParams } from 'react-router-dom';
+import ReactPlayer from 'react-player';
 
 const MainPage = () => {
+  const navigate = useNavigate();
+  const { memberId } = useParams();
+  console.log(memberId);
+
   return (
     <MainPageContainer>
-      <MainImg src="src/assets/웨비단체사진.JPG" />
+      <ReactPlayer
+        url="https://www.youtube.com/watch?v=pSUydWEqKwE"
+        muted
+        controls
+        playing
+        width={'100%'}
+        height={'100%'}
+      />
       <ButtonWrapper>
-        <Button>내 정보</Button>
-        <Button>회원가입</Button>
+        <Button
+          onClick={() => {
+            navigate(`/my/${memberId}`);
+          }}>
+          내 정보
+        </Button>
+        <Button
+          onClick={() => {
+            navigate('/signUp');
+          }}>
+          회원가입
+        </Button>
       </ButtonWrapper>
     </MainPageContainer>
   );
