@@ -10,6 +10,7 @@ const MainPage = () => {
 
   return (
     <MainPageContainer>
+      <MainTitle>메인페이지</MainTitle>
       <ReactPlayer
         url="https://www.youtube.com/watch?v=pSUydWEqKwE"
         muted
@@ -35,7 +36,9 @@ const MainPage = () => {
     </MainPageContainer>
   );
 };
-
+const MainTitle = styled.h3`
+  font-size: ${({ theme }) => theme.fonts.xl};
+`;
 const MainPageContainer = styled.main`
   margin: 5rem auto;
   display: flex;

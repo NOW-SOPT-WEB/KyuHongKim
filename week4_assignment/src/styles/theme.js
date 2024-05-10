@@ -6,6 +6,7 @@ const colors = {
   lightPurple: '#EAB4F8',
   purple: '#9900F0',
   lightYellow: '#F3F798',
+  red: '#D11808',
 };
 
 const fonts = {

@@ -5,14 +5,16 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { BASE_URL } from '../constants';
 import { useState } from 'react';
+import { useRef } from 'react';
 
 const LoginPage = () => {
   const navigate = useNavigate();
 
   const [showError, setShowError] = useState({
-    email: false,
+    id: false,
     password: false,
   });
+  let firstRender = useRef(true);
 
   const axiosLoginHandler = async (loginData) => {
     try {
@@ -31,12 +33,23 @@ const LoginPage = () => {
 
     const fd = new FormData(event.target);
     const loginData = Object.fromEntries(fd.entries());
-
-    axiosLoginHandler(loginData);
+    if (!firstRender.current && !showError['id'] && !showError['password']) {
+      axiosLoginHandler(loginData);
+    }
   };
 
-  const handleInputBlur = (value) => {
+  const handleInputBlur = (value, identifier) => {
+    firstRender.current = false;
     if (!value) {
+      setShowError((prevState) => ({
+        ...prevState,
+        [identifier]: true,
+      }));
+    } else {
+      setShowError((prevState) => ({
+        ...prevState,
+        [identifier]: false,
+      }));
     }
   };
   return (
@@ -49,9 +62,17 @@ const LoginPage = () => {
           labelText="ID"
           id="authenticationId"
           name="authenticationId"
-          onBlur={(event) => handleInputBlur()}
+          onBlur={(event) => handleInputBlur(event.target.value, 'id')}
         />
-        <InputSet type="text" labelText="PW" id="password" name="password" />
+        {showError['id'] && <ErrorText>값을 입력해주세요</ErrorText>}
+        <InputSet
+          type="text"
+          labelText="PW"
+          id="password"
+          name="password"
+          onBlur={(event) => handleInputBlur(event.target.value, 'password')}
+        />
+        {showError['password'] && <ErrorText>값을 입력해주세요</ErrorText>}
         <ButtonWrapper>
           <Button>로그인</Button>
           <Button
@@ -78,7 +99,9 @@ const LoginPageContainer = styled.main`
   height: 40rem;
   border: 1rem;
 `;
-
+const ErrorText = styled.p`
+  color: ${({ theme }) => theme.colors.red};
+`;
 const LoginTitle = styled.h3`
   height: 5rem;
   line-height: 5rem;
