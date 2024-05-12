@@ -5,7 +5,6 @@ const InputSet = ({
   labelText,
   id,
   name,
-  onBlur,
   onInput,
   maxLength,
   onChange,
@@ -19,7 +18,6 @@ const InputSet = ({
         type={type}
         id={id}
         name={name}
-        onBlur={onBlur}
         onInput={onInput}
         maxLength={maxLength}
         onChange={onChange}
