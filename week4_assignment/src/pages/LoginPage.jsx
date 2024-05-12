@@ -3,23 +3,26 @@ import { Button } from '../components/common/Button';
 import InputSet from '../components/common/InputSet';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { BASE_URL } from '../constants';
+import { BASE_URL, ID_KEY, PW_KEY } from '../constants';
 import { useState } from 'react';
 import { useRef } from 'react';
 
 const LoginPage = () => {
   const navigate = useNavigate();
 
-  const [showError, setShowError] = useState({
-    id: false,
-    password: false,
-  });
-  let firstRender = useRef(true);
+  // 첫 랜더링 화면에서는 error 메세지 안보여주기 위한 상태값
+  const firstRender = useRef(true);
 
+  // ID, PW 미입력시 Error 발생시켜줄 상태값 관리
+  const [showError, setShowError] = useState({
+    authenticationId: true,
+    password: true,
+  });
+
+  // Login Post 요청
   const axiosLoginHandler = async (loginData) => {
     try {
       const response = await axios.post(`${BASE_URL}/member/login`, loginData);
-
       const memberId = response.headers.location;
       navigate(`/main/${memberId}`);
     } catch (error) {
@@ -28,51 +31,62 @@ const LoginPage = () => {
     }
   };
 
+  // 로그인 form 전송 요청
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    firstRender.current ? (firstRender.current = false) : '';
+
+    // FormData 사용해서 입력된 값 객체화
     const fd = new FormData(event.target);
     const loginData = Object.fromEntries(fd.entries());
-    if (!firstRender.current && !showError['id'] && !showError['password']) {
+
+    if (!showError[ID_KEY] && !showError[PW_KEY]) {
       axiosLoginHandler(loginData);
+    } else {
+      for (let key in loginData) {
+        const inputValue = loginData[key];
+        handleInputChange(inputValue, key);
+      }
     }
   };
 
-  const handleInputBlur = (value, identifier) => {
-    firstRender.current = false;
-    if (!value) {
-      setShowError((prevState) => ({
-        ...prevState,
-        [identifier]: true,
-      }));
-    } else {
-      setShowError((prevState) => ({
-        ...prevState,
-        [identifier]: false,
-      }));
-    }
+  // input 값 비어있는지 아닌지 검사 후 error state 관리
+  const handleInputChange = (value, identifier) => {
+    value
+      ? setShowError((prevState) => ({
+          ...prevState,
+          [identifier]: false,
+        }))
+      : setShowError((prevState) => ({
+          ...prevState,
+          [identifier]: true,
+        }));
   };
+
   return (
     <LoginPageContainer>
       <LoginTitle>Login</LoginTitle>
       <LoginImg src="src/assets/flower.jpg" />
       <LoginForm onSubmit={handleSubmit}>
         <InputSet
-          type="text"
           labelText="ID"
-          id="authenticationId"
-          name="authenticationId"
-          onBlur={(event) => handleInputBlur(event.target.value, 'id')}
+          id={ID_KEY}
+          name={ID_KEY}
+          onChange={(event) => handleInputChange(event.target.value, ID_KEY)}
         />
-        {showError['id'] && <ErrorText>값을 입력해주세요</ErrorText>}
+        {!firstRender.current && showError[ID_KEY] && (
+          <ErrorText>값을 입력해주세요</ErrorText>
+        )}
         <InputSet
-          type="text"
           labelText="PW"
-          id="password"
-          name="password"
-          onBlur={(event) => handleInputBlur(event.target.value, 'password')}
+          id={PW_KEY}
+          name={PW_KEY}
+          onChange={(event) => handleInputChange(event.target.value, PW_KEY)}
         />
-        {showError['password'] && <ErrorText>값을 입력해주세요</ErrorText>}
+        {!firstRender.current && showError[PW_KEY] && (
+          <ErrorText>값을 입력해주세요</ErrorText>
+        )}
         <ButtonWrapper>
           <Button>로그인</Button>
           <Button
@@ -113,7 +127,11 @@ const LoginImg = styled.img`
   width: 10rem;
 `;
 
-const LoginForm = styled.form``;
+const LoginForm = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
 const ButtonWrapper = styled.div`
   display: flex;
   gap: 1rem;

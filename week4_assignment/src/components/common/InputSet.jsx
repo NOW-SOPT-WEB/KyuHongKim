@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const InputSet = ({
-  type,
+  type = 'text',
   labelText,
   id,
   name,
