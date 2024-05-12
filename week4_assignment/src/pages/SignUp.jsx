@@ -17,9 +17,6 @@ import { pwUtil } from '../utils/pwUtil';
 const SignUpPage = () => {
   const navigate = useNavigate();
 
-  // 양식에 맞는 비밀번호인지 체크하는 상태
-  const [pwCorrect, setPwCorrect] = useState(false);
-
   // input이 비었는지 체크하는 상태
   const [isBlank, setIsBlank] = useState({
     [ID_KEY]: true,
@@ -68,8 +65,8 @@ const SignUpPage = () => {
             [key]: false,
           }));
     }
-    handlePw(memberData[PW_KEY]);
 
+    const pwCorrect = pwUtil(memberData[PW_KEY]);
     // 값이 비어있지 않고 비밀번호 양식이 올바를 때만 회원가입 요청 보내기
     if (!memberData[ID_KEY]) {
       alert('id를 입력하세요');
@@ -96,11 +93,6 @@ const SignUpPage = () => {
       .replace(/[^0-9]/g, '')
       .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, '$1-$2-$3')
       .replace(/(\-{1,2})$/g, '');
-  };
-
-  // pw 검증 유틸함수 적용
-  const handlePw = (pw) => {
-    setPwCorrect(pwUtil(pw));
   };
 
   return (
