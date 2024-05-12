@@ -10,7 +10,7 @@ const InputSet = ({
   maxLength,
   onChange,
   blank,
-  idRef,
+  inputRef,
 }) => {
   return (
     <InputWrapper>
@@ -24,7 +24,7 @@ const InputSet = ({
         maxLength={maxLength}
         onChange={onChange}
         $blank={blank}
-        ref={idRef}
+        ref={inputRef}
       />
     </InputWrapper>
   );
