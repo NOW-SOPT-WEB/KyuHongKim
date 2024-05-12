@@ -31,14 +31,13 @@ const InputSet = ({
 };
 
 const InputWrapper = styled.section`
-  width: 80%;
   display: flex;
   gap: 1rem;
   align-items: center;
 `;
 
 const Input = styled.input`
-  width: 90%;
+  width: 15rem;
   height: 2rem;
   border-radius: 3px;
   border: ${(props) => (props.$blank === true ? 'solid 1px red' : '0px')};
@@ -46,5 +45,6 @@ const Input = styled.input`
 
 const InputLabel = styled.label`
   font-size: ${({ theme }) => theme.fonts.md};
+  width: 10rem;
 `;
 export default InputSet;

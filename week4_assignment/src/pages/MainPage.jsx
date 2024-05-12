@@ -6,7 +6,6 @@ import ReactPlayer from 'react-player';
 const MainPage = () => {
   const navigate = useNavigate();
   const { memberId } = useParams();
-  console.log(memberId);
 
   return (
     <MainPageContainer>
@@ -23,19 +22,22 @@ const MainPage = () => {
         <Button
           onClick={() => {
             navigate(`/my/${memberId}`);
-          }}>
+          }}
+          type="button">
           내 정보
         </Button>
         <Button
           onClick={() => {
             navigate('/signUp');
-          }}>
+          }}
+          type="button">
           회원가입
         </Button>
       </ButtonWrapper>
     </MainPageContainer>
   );
 };
+
 const MainTitle = styled.h3`
   font-size: ${({ theme }) => theme.fonts.xl};
 `;
@@ -48,12 +50,6 @@ const MainPageContainer = styled.main`
   background-color: aliceblue;
   width: 60%;
   height: 40rem;
-`;
-
-const MainImg = styled.img`
-  height: 20rem;
-  width: 30rem;
-  margin-top: 2rem;
 `;
 
 const ButtonWrapper = styled.div`
